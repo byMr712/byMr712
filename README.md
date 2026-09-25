@@ -16,7 +16,7 @@
 
 ## 🗂️ Каталог моих проектов
 
-<details open>
+<details>
 <summary><b>Minecraft Моды (Fabric 1.21.4)</b></summary>
 <br>
 
@@ -40,7 +40,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><b>Minecraft плагины</b></summary>
 <br>
 
@@ -52,7 +52,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><b>CLI Утилиты и программы</b></summary>
 <br>
 
@@ -67,7 +67,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><b>Веб-сервисы и VPN</b></summary>
 <br>
 
@@ -81,7 +81,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><b>Игры, Движки и Русификаторы</b></summary>
 <br>
 

@@ -16,7 +16,7 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 ## 🗂️ Project Directory
 
-<details open>
+<details>
 <summary><b>Minecraft Mods (Fabric 1.21.4)</b></summary>
 <br>
 
@@ -40,7 +40,7 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 </details>
 
-<details open>
+<details>
 <summary><b>Minecraft Server Plugins</b></summary>
 <br>
 
@@ -52,7 +52,7 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 </details>
 
-<details open>
+<details>
 <summary><b>CLI Utilities & Tools</b></summary>
 <br>
 
@@ -67,7 +67,7 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 </details>
 
-<details open>
+<details>
 <summary><b>Web Services & VPN</b></summary>
 <br>
 
@@ -81,7 +81,7 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 </details>
 
-<details open>
+<details>
 <summary><b>Games, Engines & Translations</b></summary>
 <br>
 
