@@ -11,7 +11,7 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com/?user=byMr712&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+  <img src="./github-streak-en.svg" alt="GitHub Streak" />
 </p>
 
 ## 🗂️ Project Directory

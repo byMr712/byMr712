@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com/?user=byMr712&theme=tokyonight&hide_border=true&locale=ru" alt="Серия активности GitHub" />
+  <img src="./github-streak.svg" alt="Серия активности GitHub" />
 </p>
 
 ## 🗂️ Каталог моих проектов
