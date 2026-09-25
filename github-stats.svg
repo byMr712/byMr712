@@ -56,7 +56,7 @@
             </svg>
             <text class="stat bold" x="25" y="12.5">Всего коммитов (Commits):</text>
           </g>
-          <text id="stat-commits" class="stat bold" x="470" y="12.5" text-anchor="end">501</text>
+          <text id="stat-commits" class="stat bold" x="470" y="12.5" text-anchor="end">528</text>
         </g>
       </g>
 
