@@ -84,13 +84,11 @@
 
 </details>
 
-### 📬 Связь
+## 📬 Связь
 * **Telegram**: @byMr712 [[Прямая ссылка]](https://t.me/byMr712)
 * **VK**: @byMr712 [[Прямая ссылка]](https://vk.ru/byMr712)
 
----
-
-### 📊 Активность и статистика профиля
+## 📊 Активность и статистика профиля
 
 <p align="center">
   <img src="./github-stats.svg" alt="Статистика GitHub" />
