@@ -7,7 +7,7 @@
 ## 🗂️ Каталог моих проектов
 
 <details open>
-<summary>🎮 <b>Minecraft Моды (Fabric 1.21.4)</b> <i>[15 проектов]</i></summary>
+<summary><b>Minecraft Моды (Fabric 1.21.4)</b> <i>[15 проектов]</i></summary>
 <br>
 
 | Мод | Описание |
@@ -31,7 +31,7 @@
 </details>
 
 <details>
-<summary>🔌 <b>Minecraft плагины</b> <i>[3 проекта]</i></summary>
+<summary><b>Minecraft плагины</b> <i>[3 проекта]</i></summary>
 <br>
 
 | Плагин | Описание |
@@ -43,7 +43,7 @@
 </details>
 
 <details>
-<summary>🛠️ <b>CLI Утилиты и программы</b> <i>[6 проектов]</i></summary>
+<summary><b>CLI Утилиты и программы</b> <i>[6 проектов]</i></summary>
 <br>
 
 | Утилита / Программа | Описание |
@@ -58,7 +58,7 @@
 </details>
 
 <details>
-<summary>🌐 <b>Веб-сервисы и VPN</b> <i>[5 проектов]</i></summary>
+<summary><b>Веб-сервисы и VPN</b> <i>[5 проектов]</i></summary>
 <br>
 
 | Проект | Описание |
@@ -84,13 +84,11 @@
 
 </details>
 
-### 📬 Связь
+## 📬 Связь
 * **Telegram**: @byMr712 [[Прямая ссылка]](https://t.me/byMr712)
 * **VK**: @byMr712 [[Прямая ссылка]](https://vk.ru/byMr712)
 
----
-
-### 📊 Активность и статистика профиля
+## 📊 Активность и статистика профиля
 
 <p align="center">
   <img src="./github-stats.svg" alt="Статистика GitHub" />
