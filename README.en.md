@@ -4,10 +4,20 @@
 
 Minecraft mod developer, CLI tools author, and automation enthusiast.
 
+## 📊 Profile Activity & Stats
+
+<p align="center">
+  <img src="./github-stats-en.svg" alt="GitHub Stats" />
+</p>
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com/?user=byMr712&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+</p>
+
 ## 🗂️ Project Directory
 
 <details open>
-<summary><b>Minecraft Mods (Fabric 1.21.4)</b> <i>[15 projects]</i></summary>
+<summary><b>Minecraft Mods (Fabric 1.21.4)</b></summary>
 <br>
 
 | Mod | Description |
@@ -30,8 +40,8 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 </details>
 
-<details>
-<summary><b>Minecraft Server Plugins</b> <i>[3 projects]</i></summary>
+<details open>
+<summary><b>Minecraft Server Plugins</b></summary>
 <br>
 
 | Plugin | Description |
@@ -42,8 +52,8 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 </details>
 
-<details>
-<summary><b>CLI Utilities & Tools</b> <i>[6 projects]</i></summary>
+<details open>
+<summary><b>CLI Utilities & Tools</b></summary>
 <br>
 
 | Utility / Tool | Description |
@@ -57,8 +67,8 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 </details>
 
-<details>
-<summary><b>Web Services & VPN</b> <i>[5 projects]</i></summary>
+<details open>
+<summary><b>Web Services & VPN</b></summary>
 <br>
 
 | Project | Description |
@@ -71,8 +81,8 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 </details>
 
-<details>
-<summary><b>Games, Engines & Translations</b> <i>[4 projects]</i></summary>
+<details open>
+<summary><b>Games, Engines & Translations</b></summary>
 <br>
 
 | Project | Description |
@@ -87,13 +97,3 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 ## 📬 Contact
 * **Telegram**: @byMr712 [[Direct Link]](https://t.me/byMr712)
 * **VK**: @byMr712 [[Direct Link]](https://vk.ru/byMr712)
-
-## 📊 Profile Activity & Stats
-
-<p align="center">
-  <img src="./github-stats-en.svg" alt="GitHub Stats" />
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com/?user=byMr712&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
-</p>

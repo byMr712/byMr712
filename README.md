@@ -4,10 +4,20 @@
 
 Разработчик модов для Minecraft, консольных утилит и инструментов автоматизации.
 
+## 📊 Активность и статистика профиля
+
+<p align="center">
+  <img src="./github-stats.svg" alt="Статистика GitHub" />
+</p>
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com/?user=byMr712&theme=tokyonight&hide_border=true&locale=ru" alt="Серия активности GitHub" />
+</p>
+
 ## 🗂️ Каталог моих проектов
 
 <details open>
-<summary><b>Minecraft Моды (Fabric 1.21.4)</b> <i>[15 проектов]</i></summary>
+<summary><b>Minecraft Моды (Fabric 1.21.4)</b></summary>
 <br>
 
 | Мод | Описание |
@@ -30,8 +40,8 @@
 
 </details>
 
-<details>
-<summary><b>Minecraft плагины</b> <i>[3 проекта]</i></summary>
+<details open>
+<summary><b>Minecraft плагины</b></summary>
 <br>
 
 | Плагин | Описание |
@@ -42,8 +52,8 @@
 
 </details>
 
-<details>
-<summary><b>CLI Утилиты и программы</b> <i>[6 проектов]</i></summary>
+<details open>
+<summary><b>CLI Утилиты и программы</b></summary>
 <br>
 
 | Утилита / Программа | Описание |
@@ -57,8 +67,8 @@
 
 </details>
 
-<details>
-<summary><b>Веб-сервисы и VPN</b> <i>[5 проектов]</i></summary>
+<details open>
+<summary><b>Веб-сервисы и VPN</b></summary>
 <br>
 
 | Проект | Описание |
@@ -71,8 +81,8 @@
 
 </details>
 
-<details>
-<summary>🎮 <b>Игры, Движки и Русификаторы</b> <i>[4 проекта]</i></summary>
+<details open>
+<summary><b>Игры, Движки и Русификаторы</b></summary>
 <br>
 
 | Проект | Описание |
@@ -87,13 +97,3 @@
 ## 📬 Связь
 * **Telegram**: @byMr712 [[Прямая ссылка]](https://t.me/byMr712)
 * **VK**: @byMr712 [[Прямая ссылка]](https://vk.ru/byMr712)
-
-## 📊 Активность и статистика профиля
-
-<p align="center">
-  <img src="./github-stats.svg" alt="Статистика GitHub" />
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com/?user=byMr712&theme=tokyonight&hide_border=true&locale=ru" alt="Серия активности GitHub" />
-</p>
