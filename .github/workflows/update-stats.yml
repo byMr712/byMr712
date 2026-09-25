@@ -25,41 +25,49 @@ jobs:
             const fs = require('fs');
             const username = 'byMr712';
             
-            const query = `
-              query($login: String!) {
-                user(login: $login) {
-                  repositories(first: 100, ownerAffiliations: OWNER) {
-                    nodes {
-                      stargazerCount
-                      defaultBranchRef {
-                        target {
-                          ... on Commit {
-                            history {
-                              totalCount
+            try {
+              // 1. Получаем ID пользователя
+              const userRes = await github.graphql(`
+                query($login: String!) {
+                  user(login: $login) {
+                    id
+                  }
+                }
+              `, { login: username });
+              const userId = userRes.user.id;
+
+              // 2. Запрашиваем статистику с фильтрацией коммитов только текущего автора
+              const query = `
+                query($login: String!, $authorId: ID!) {
+                  user(login: $login) {
+                    repositories(first: 100, ownerAffiliations: OWNER) {
+                      nodes {
+                        stargazerCount
+                        defaultBranchRef {
+                          target {
+                            ... on Commit {
+                              history(author: { id: $authorId }) {
+                                totalCount
+                              }
                             }
                           }
                         }
                       }
                     }
-                  }
-                  contributionsCollection {
-                    contributionCalendar {
-                      totalContributions
+                    contributionsCollection {
+                      totalCommitContributions
                     }
-                    totalCommitContributions
-                  }
-                  pullRequests {
-                    totalCount
-                  }
-                  issues {
-                    totalCount
+                    pullRequests {
+                      totalCount
+                    }
+                    issues {
+                      totalCount
+                    }
                   }
                 }
-              }
-            `;
-            
-            try {
-              const res = await github.graphql(query, { login: username });
+              `;
+              
+              const res = await github.graphql(query, { login: username, authorId: userId });
               const user = res.user;
               
               const totalStars = user.repositories.nodes.reduce((acc, r) => acc + (r.stargazerCount || 0), 0);
@@ -72,13 +80,12 @@ jobs:
                   totalCommits += r.defaultBranchRef.target.history.totalCount;
                 }
               });
+              
               if (totalCommits === 0) {
-                totalCommits = user.contributionsCollection.totalCommitContributions || 501;
+                totalCommits = user.contributionsCollection.totalCommitContributions;
               }
               
-              const totalContribs = user.contributionsCollection.contributionCalendar.totalContributions || 557;
-              
-              // Update Russian SVG
+              // Обновляем русскую версию SVG
               if (fs.existsSync('github-stats.svg')) {
                 let svgRu = fs.readFileSync('github-stats.svg', 'utf8');
                 svgRu = svgRu.replace(/(<text id="stat-stars"[^>]*>)[^<]*(<\/text>)/, `$1${totalStars}$2`);
@@ -88,7 +95,7 @@ jobs:
                 fs.writeFileSync('github-stats.svg', svgRu);
               }
 
-              // Update English SVG
+              // Обновляем английскую версию SVG
               if (fs.existsSync('github-stats-en.svg')) {
                 let svgEn = fs.readFileSync('github-stats-en.svg', 'utf8');
                 svgEn = svgEn.replace(/(<text id="stat-stars"[^>]*>)[^<]*(<\/text>)/, `$1${totalStars}$2`);
