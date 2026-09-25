@@ -96,4 +96,5 @@ Minecraft mod developer, CLI tools author, and automation enthusiast.
 
 ## 📬 Contact
 * **Telegram**: @byMr712 [[Direct Link]](https://t.me/byMr712)
+* **Discord**: @byMr712 [[Direct Link]](https://discord.com/users/829682913305427968)
 * **VK**: @byMr712 [[Direct Link]](https://vk.ru/byMr712)

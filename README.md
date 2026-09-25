@@ -96,4 +96,5 @@
 
 ## 📬 Связь
 * **Telegram**: @byMr712 [[Прямая ссылка]](https://t.me/byMr712)
+* **Discord**: @byMr712 [[Прямая ссылка]](https://discord.com/users/829682913305427968)
 * **VK**: @byMr712 [[Прямая ссылка]](https://vk.ru/byMr712)
