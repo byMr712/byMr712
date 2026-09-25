@@ -2,7 +2,7 @@
 
 > **Language:** English · [Русский](README.md)
 
-Minecraft mod developer, CLI tools author, and automation enthusiast.
+Minecraft mod developer, applications, CLI tools author, and other software tools.
 
 ## 📊 Profile Activity & Stats
 
