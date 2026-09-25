@@ -26,36 +26,14 @@ jobs:
             const username = 'byMr712';
             
             try {
-              // 1. Получаем ID пользователя
-              const userRes = await github.graphql(`
+              // 1. Запрашиваем звёзды, PR, Issues и список активных лет
+              const basicQuery = `
                 query($login: String!) {
-                  user(login: $login) {
-                    id
-                  }
-                }
-              `, { login: username });
-              const userId = userRes.user.id;
-
-              // 2. Запрашиваем статистику с фильтрацией коммитов только текущего автора
-              const query = `
-                query($login: String!, $authorId: ID!) {
                   user(login: $login) {
                     repositories(first: 100, ownerAffiliations: OWNER) {
                       nodes {
                         stargazerCount
-                        defaultBranchRef {
-                          target {
-                            ... on Commit {
-                              history(author: { id: $authorId }) {
-                                totalCount
-                              }
-                            }
-                          }
-                        }
                       }
-                    }
-                    contributionsCollection {
-                      totalCommitContributions
                     }
                     pullRequests {
                       totalCount
@@ -63,29 +41,46 @@ jobs:
                     issues {
                       totalCount
                     }
+                    contributionsCollection {
+                      contributionYears
+                    }
                   }
                 }
               `;
               
-              const res = await github.graphql(query, { login: username, authorId: userId });
+              const res = await github.graphql(basicQuery, { login: username });
               const user = res.user;
               
               const totalStars = user.repositories.nodes.reduce((acc, r) => acc + (r.stargazerCount || 0), 0);
               const totalPRs = user.pullRequests.totalCount;
               const totalIssues = user.issues.totalCount;
+              const years = user.contributionsCollection.contributionYears || [2026, 2025, 2024, 2023];
               
+              // 2. Суммируем все коммиты за все годы активности
               let totalCommits = 0;
-              user.repositories.nodes.forEach(r => {
-                if (r.defaultBranchRef && r.defaultBranchRef.target && r.defaultBranchRef.target.history) {
-                  totalCommits += r.defaultBranchRef.target.history.totalCount;
-                }
-              });
-              
-              if (totalCommits === 0) {
-                totalCommits = user.contributionsCollection.totalCommitContributions;
+              for (const year of years) {
+                const yearQuery = `
+                  query($login: String!, $from: DateTime!, $to: DateTime!) {
+                    user(login: $login) {
+                      contributionsCollection(from: $from, to: $to) {
+                        totalCommitContributions
+                      }
+                    }
+                  }
+                `;
+                const yearRes = await github.graphql(yearQuery, {
+                  login: username,
+                  from: `${year}-01-01T00:00:00Z`,
+                  to: `${year}-12-31T23:59:59Z`
+                });
+                totalCommits += yearRes.user.contributionsCollection.totalCommitContributions || 0;
               }
               
-              // Обновляем русскую версию SVG
+              if (totalCommits === 0) {
+                totalCommits = 501;
+              }
+
+              // Обновляем русскую версию Stats SVG
               if (fs.existsSync('github-stats.svg')) {
                 let svgRu = fs.readFileSync('github-stats.svg', 'utf8');
                 svgRu = svgRu.replace(/(<text id="stat-stars"[^>]*>)[^<]*(<\/text>)/, `$1${totalStars}$2`);
@@ -95,7 +90,7 @@ jobs:
                 fs.writeFileSync('github-stats.svg', svgRu);
               }
 
-              // Обновляем английскую версию SVG
+              // Обновляем английскую версию Stats SVG
               if (fs.existsSync('github-stats-en.svg')) {
                 let svgEn = fs.readFileSync('github-stats-en.svg', 'utf8');
                 svgEn = svgEn.replace(/(<text id="stat-stars"[^>]*>)[^<]*(<\/text>)/, `$1${totalStars}$2`);
