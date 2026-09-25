@@ -17,7 +17,7 @@
 ## 🗂️ Каталог моих проектов
 
 <details>
-<summary><b>Minecraft Моды (Fabric 1.21.4)</b></summary>
+<summary><b>Minecraft моды (Fabric 1.21.4)</b></summary>
 <br>
 
 | Мод | Описание |
@@ -53,7 +53,7 @@
 </details>
 
 <details>
-<summary><b>CLI Утилиты и программы</b></summary>
+<summary><b>CLI утилиты и программы</b></summary>
 <br>
 
 | Утилита / Программа | Описание |
@@ -82,7 +82,7 @@
 </details>
 
 <details>
-<summary><b>Игры, Движки и Русификаторы</b></summary>
+<summary><b>Игры, движки, русификаторы</b></summary>
 <br>
 
 | Проект | Описание |
