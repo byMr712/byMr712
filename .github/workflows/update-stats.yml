@@ -1,0 +1,111 @@
+name: Auto Update Profile Stats
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Каждые 6 часов
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Update Stats SVG
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const username = 'byMr712';
+            
+            const query = `
+              query($login: String!) {
+                user(login: $login) {
+                  repositories(first: 100, ownerAffiliations: OWNER) {
+                    nodes {
+                      stargazerCount
+                      defaultBranchRef {
+                        target {
+                          ... on Commit {
+                            history {
+                              totalCount
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  contributionsCollection {
+                    contributionCalendar {
+                      totalContributions
+                    }
+                    totalCommitContributions
+                  }
+                  pullRequests {
+                    totalCount
+                  }
+                  issues {
+                    totalCount
+                  }
+                }
+              }
+            `;
+            
+            try {
+              const res = await github.graphql(query, { login: username });
+              const user = res.user;
+              
+              const totalStars = user.repositories.nodes.reduce((acc, r) => acc + (r.stargazerCount || 0), 0);
+              const totalPRs = user.pullRequests.totalCount;
+              const totalIssues = user.issues.totalCount;
+              
+              let totalCommits = 0;
+              user.repositories.nodes.forEach(r => {
+                if (r.defaultBranchRef && r.defaultBranchRef.target && r.defaultBranchRef.target.history) {
+                  totalCommits += r.defaultBranchRef.target.history.totalCount;
+                }
+              });
+              if (totalCommits === 0) {
+                totalCommits = user.contributionsCollection.totalCommitContributions || 501;
+              }
+              
+              const totalContribs = user.contributionsCollection.contributionCalendar.totalContributions || 557;
+              
+              // Update Russian SVG
+              if (fs.existsSync('github-stats.svg')) {
+                let svgRu = fs.readFileSync('github-stats.svg', 'utf8');
+                svgRu = svgRu.replace(/(<text id="stat-stars"[^>]*>)[^<]*(<\/text>)/, `$1${totalStars}$2`);
+                svgRu = svgRu.replace(/(<text id="stat-commits"[^>]*>)[^<]*(<\/text>)/, `$1${totalCommits}$2`);
+                svgRu = svgRu.replace(/(<text id="stat-prs"[^>]*>)[^<]*(<\/text>)/, `$1${totalPRs}$2`);
+                svgRu = svgRu.replace(/(<text id="stat-issues"[^>]*>)[^<]*(<\/text>)/, `$1${totalIssues}$2`);
+                fs.writeFileSync('github-stats.svg', svgRu);
+              }
+
+              // Update English SVG
+              if (fs.existsSync('github-stats-en.svg')) {
+                let svgEn = fs.readFileSync('github-stats-en.svg', 'utf8');
+                svgEn = svgEn.replace(/(<text id="stat-stars"[^>]*>)[^<]*(<\/text>)/, `$1${totalStars}$2`);
+                svgEn = svgEn.replace(/(<text id="stat-commits"[^>]*>)[^<]*(<\/text>)/, `$1${totalCommits}$2`);
+                svgEn = svgEn.replace(/(<text id="stat-prs"[^>]*>)[^<]*(<\/text>)/, `$1${totalPRs}$2`);
+                svgEn = svgEn.replace(/(<text id="stat-issues"[^>]*>)[^<]*(<\/text>)/, `$1${totalIssues}$2`);
+                fs.writeFileSync('github-stats-en.svg', svgEn);
+              }
+
+              console.log(`Updated stats: Stars=${totalStars}, Commits=${totalCommits}, PRs=${totalPRs}, Issues=${totalIssues}`);
+            } catch (err) {
+              console.error('Error updating stats:', err);
+            }
+
+      - name: Commit & Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add github-stats.svg github-stats-en.svg
+          git diff --staged --quiet || (git commit -m "Auto-update profile stats [skip ci]" && git push) || echo "No changes"
