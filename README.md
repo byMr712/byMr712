@@ -63,8 +63,7 @@
 | **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | Управление воспроизведением медиа в Windows кнопками гарнитуры Android |
 | **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Утилита стеганографии для скрытия информации внутри BMP-изображений |
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Нативная сборка FileBrowser Quantum для сетевых хранилищ Terramaster TOS 6/7 |
-| **[DeskControl-Reloaded](https://github.com/byMr712/DeskControl-Reloaded)** | Расширенная утилита удаленного управления компьютером |
-
+| **[DeskControl-Reloaded](https://github.com/byMr712/DeskControl-Reloaded)** | Расширенная версия программы DeskControl, для подключения AR/XR очков к телефону |
 </details>
 
 <details>
