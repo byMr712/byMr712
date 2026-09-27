@@ -38,7 +38,7 @@ function fetchRepos(page = 1) {
 
     https.get(options, (res) => {
       let body = '';
-      res.on('data', chunk => body += chunk);
+      res.on('data', chunk => data += chunk);
       res.on('end', () => {
         if (res.statusCode < 200 || res.statusCode >= 300) {
           return reject(new Error(`GitHub API returned status ${res.statusCode}: ${body}`));
@@ -83,7 +83,6 @@ function extractDescriptionFromMarkdown(mdContent) {
     .filter(l => l && !l.startsWith('#') && !l.startsWith('>') && !l.startsWith('!') && !l.startsWith('---') && !l.startsWith('<') && !l.startsWith('|'));
   
   if (lines.length > 0) {
-    // Убираем ссылки markdown и форматирование при необходимости, оставляя чистый текст
     return lines[0].replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim();
   }
   return null;
@@ -101,7 +100,7 @@ async function translateText(text, fromLang, toLang) {
       }
     }
   } catch (e) {
-    // ignore
+    // fallback
   }
   return text;
 }
@@ -140,7 +139,6 @@ async function classifyAndDescribeRepo(repo) {
   }
 
   if (!descEn) {
-    // Если английского README нет, пробуем перевести русское описание
     if (descRu && /[а-яА-ЯёЁ]/.test(descRu)) {
       descEn = await translateText(descRu, 'ru', 'en');
     } else {
@@ -148,7 +146,6 @@ async function classifyAndDescribeRepo(repo) {
     }
   }
 
-  // Очистка от лишних точек в конце или длинных строк если нужно
   return {
     category,
     cleanName,
@@ -192,18 +189,18 @@ async function updateCatalog() {
       path: 'README.md',
       lang: 'ru',
       sectionHeaders: {
-        MOD: /<summary><b>Minecraft моды[^<]*<\/summary>/i,
-        PLUGIN: /<summary><b>Minecraft плагины[^<]*<\/summary>/i,
-        CLI: /<summary><b>CLI утилиты[^<]*<\/summary>/i
+        MOD: /<summary>\s*<b>\s*Minecraft моды/i,
+        PLUGIN: /<summary>\s*<b>\s*Minecraft плагины/i,
+        CLI: /<summary>\s*<b>\s*CLI утилиты/i
       }
     },
     {
       path: 'README.en.md',
       lang: 'en',
       sectionHeaders: {
-        MOD: /<summary><b>Minecraft Mods[^<]*<\/summary>/i,
-        PLUGIN: /<summary><b>Minecraft Server Plugins[^<]*<\/summary>/i,
-        CLI: /<summary><b>CLI Utilities[^<]*<\/summary>/i
+        MOD: /<summary>\s*<b>\s*Minecraft Mods/i,
+        PLUGIN: /<summary>\s*<b>\s*Minecraft Server Plugins/i,
+        CLI: /<summary>\s*<b>\s*CLI Utilities/i
       }
     }
   ];
