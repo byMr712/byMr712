@@ -124,10 +124,81 @@ jobs:
                 fs.writeFileSync('github-stats-en.svg', svgEn);
               }
 
+              // Расчёт текущей и рекордной серий (Streak)
+              const monthsRu = ['янв.', 'февр.', 'мар.', 'апр.', 'мая', 'июн.', 'июл.', 'авг.', 'сент.', 'окт.', 'нояб.', 'дек.'];
+              const monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+              function formatStreakDate(dateStr, lang) {
+                const d = new Date(dateStr + 'T00:00:00Z');
+                const day = d.getUTCDate();
+                const month = (lang === 'ru' ? monthsRu : monthsEn)[d.getUTCMonth()];
+                return `${day} ${month}`;
+              }
+
+              // 1. Current Streak
+              const daysLen = allDays.length;
+              let currentStreak = 0;
+              let currentStart = null;
+              let currentEnd = null;
+
+              const todayObj = allDays[daysLen - 1];
+              const yesterdayObj = daysLen > 1 ? allDays[daysLen - 2] : null;
+
+              let startIndex = -1;
+              if (todayObj && todayObj.contributionCount > 0) {
+                startIndex = daysLen - 1;
+              } else if (yesterdayObj && yesterdayObj.contributionCount > 0) {
+                startIndex = daysLen - 2;
+              }
+
+              if (startIndex !== -1) {
+                currentEnd = allDays[startIndex].date;
+                let i = startIndex;
+                while (i >= 0 && allDays[i].contributionCount > 0) {
+                  currentStreak++;
+                  currentStart = allDays[i].date;
+                  i--;
+                }
+              }
+
+              // 2. Longest Streak
+              let longestStreak = 0;
+              let longestStart = null;
+              let longestEnd = null;
+
+              let tempStreak = 0;
+              let tempStart = null;
+
+              for (let i = 0; i < allDays.length; i++) {
+                const day = allDays[i];
+                if (day.contributionCount > 0) {
+                  if (tempStreak === 0) tempStart = day.date;
+                  tempStreak++;
+                  if (tempStreak > longestStreak) {
+                    longestStreak = tempStreak;
+                    longestStart = tempStart;
+                    longestEnd = day.date;
+                  }
+                } else {
+                  tempStreak = 0;
+                  tempStart = null;
+                }
+              }
+
+              const currentRangeRu = currentStart && currentEnd ? (currentStart === currentEnd ? formatStreakDate(currentStart, 'ru') : `${formatStreakDate(currentStart, 'ru')} - ${formatStreakDate(currentEnd, 'ru')}`) : 'Нет серии';
+              const currentRangeEn = currentStart && currentEnd ? (currentStart === currentEnd ? formatStreakDate(currentStart, 'en') : `${formatStreakDate(currentStart, 'en')} - ${formatStreakDate(currentEnd, 'en')}`) : 'No streak';
+
+              const longestRangeRu = longestStart && longestEnd ? `${formatStreakDate(longestStart, 'ru')} - ${formatStreakDate(longestEnd, 'ru')}` : 'Нет';
+              const longestRangeEn = longestStart && longestEnd ? `${formatStreakDate(longestStart, 'en')} - ${formatStreakDate(longestEnd, 'en')}` : 'None';
+
               // Обновляем русскую версию Streak SVG
               if (fs.existsSync('github-streak.svg')) {
                 let streakRu = fs.readFileSync('github-streak.svg', 'utf8');
                 streakRu = streakRu.replace(/(<text id="streak-total-commits"[^>]*>)[^<]*(<\/text>)/, `$1${totalCommits}$2`);
+                streakRu = streakRu.replace(/(<text id="streak-current-count"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${currentStreak}\n        $2`);
+                streakRu = streakRu.replace(/(<text id="streak-current-range"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${currentRangeRu}\n        $2`);
+                streakRu = streakRu.replace(/(<text id="streak-longest-count"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestStreak}\n        $2`);
+                streakRu = streakRu.replace(/(<text id="streak-longest-range"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestRangeRu}\n        $2`);
                 fs.writeFileSync('github-streak.svg', streakRu);
               }
 
@@ -135,10 +206,14 @@ jobs:
               if (fs.existsSync('github-streak-en.svg')) {
                 let streakEn = fs.readFileSync('github-streak-en.svg', 'utf8');
                 streakEn = streakEn.replace(/(<text id="streak-total-commits"[^>]*>)[^<]*(<\/text>)/, `$1${totalCommits}$2`);
+                streakEn = streakEn.replace(/(<text id="streak-current-count"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${currentStreak}\n        $2`);
+                streakEn = streakEn.replace(/(<text id="streak-current-range"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${currentRangeEn}\n        $2`);
+                streakEn = streakEn.replace(/(<text id="streak-longest-count"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestStreak}\n        $2`);
+                streakEn = streakEn.replace(/(<text id="streak-longest-range"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestRangeEn}\n        $2`);
                 fs.writeFileSync('github-streak-en.svg', streakEn);
               }
 
-              console.log(`Updated stats: Stars=${totalStars}, Commits=${totalCommits}, PRs=${totalPRs}, Issues=${totalIssues}`);
+              console.log(`Updated stats: Stars=${totalStars}, Commits=${totalCommits}, PRs=${totalPRs}, Issues=${totalIssues}, Streak=${currentStreak}`);
             } catch (err) {
               console.error('Error updating stats:', err);
             }
