@@ -37,6 +37,7 @@
 | **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Модификаторы качества и случайные характеристики для предметов |
 | **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Доски объявлений с заданиями и ценными наградами |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Ускорение рендеринга на видеокартах NVIDIA с использованием Mesh Shaders |
+| **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Потустороннее измерение The Sift, новые биомы, уникальные существа, ихор и блоки |
 
 </details>
 

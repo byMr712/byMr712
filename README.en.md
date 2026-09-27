@@ -37,6 +37,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Item quality modifiers and randomized RPG affixes/attributes |
 | **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Bounty boards with procedural tasks and valuable rewards |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Hardware rendering acceleration on NVIDIA GPUs using Mesh Shaders |
+| **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Port of The Sift dimension mod: eerie world, custom biomes, entities, ichor, and blocks |
 
 </details>
 
