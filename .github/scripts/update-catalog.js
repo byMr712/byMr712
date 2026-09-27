@@ -3,6 +3,22 @@ const https = require('https');
 
 const USERNAME = 'byMr712';
 
+function httpsGet(url, headers = {}) {
+  return new Promise((resolve, reject) => {
+    https.get(url, { headers: { 'User-Agent': 'NodeJS-Catalog-Updater', ...headers } }, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          resolve(data);
+        } else {
+          resolve(null);
+        }
+      });
+    }).on('error', () => resolve(null));
+  });
+}
+
 function fetchRepos(page = 1) {
   return new Promise((resolve, reject) => {
     const token = process.env.GITHUB_TOKEN;
@@ -51,52 +67,99 @@ async function getAllRepos() {
   return allRepos;
 }
 
-function classifyRepo(repo) {
-  const name = repo.name;
-  
-  // 1. Minecraft Mod
-  if (/-MinecraftMod$/i.test(name)) {
-    const cleanName = name.replace(/-(\d+\.\d+(\.\d+)?-)?MinecraftMod$/i, '');
-    return {
-      category: 'MOD',
-      cleanName: cleanName,
-      repoName: name,
-      url: repo.html_url,
-      descriptionRu: repo.description || `Модификация ${cleanName} для Minecraft`,
-      descriptionEn: repo.description ? `${cleanName} mod for Minecraft` : `${cleanName} mod for Minecraft`
-    };
+async function fetchRawRepoFile(repoName, fileName) {
+  for (const branch of ['main', 'master']) {
+    const url = `https://raw.githubusercontent.com/${USERNAME}/${repoName}/${branch}/${fileName}`;
+    const content = await httpsGet(url);
+    if (content) return content;
   }
-  
-  // 2. Minecraft Plugin
-  if (/-MinecraftPlugin$/i.test(name)) {
-    const cleanName = name.replace(/-MinecraftPlugin$/i, '');
-    return {
-      category: 'PLUGIN',
-      cleanName: cleanName,
-      repoName: name,
-      url: repo.html_url,
-      descriptionRu: repo.description || `Плагин ${cleanName} для Minecraft серверов`,
-      descriptionEn: repo.description ? `${cleanName} plugin for Minecraft servers` : `${cleanName} plugin for Minecraft servers`
-    };
-  }
-
-  // 3. CLI Utilities
-  if (/^MR-CLI-/i.test(name)) {
-    return {
-      category: 'CLI',
-      cleanName: name,
-      repoName: name,
-      url: repo.html_url,
-      descriptionRu: repo.description || `Консольная утилита ${name}`,
-      descriptionEn: repo.description || `Command-line utility ${name}`
-    };
-  }
-
   return null;
 }
 
+function extractDescriptionFromMarkdown(mdContent) {
+  if (!mdContent) return null;
+  const lines = mdContent.split('\n')
+    .map(l => l.trim())
+    .filter(l => l && !l.startsWith('#') && !l.startsWith('>') && !l.startsWith('!') && !l.startsWith('---') && !l.startsWith('<') && !l.startsWith('|'));
+  
+  if (lines.length > 0) {
+    // Убираем ссылки markdown и форматирование при необходимости, оставляя чистый текст
+    return lines[0].replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim();
+  }
+  return null;
+}
+
+async function translateText(text, fromLang, toLang) {
+  if (!text) return text;
+  try {
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${fromLang}|${toLang}`;
+    const raw = await httpsGet(url);
+    if (raw) {
+      const json = JSON.parse(raw);
+      if (json && json.responseData && json.responseData.translatedText) {
+        return json.responseData.translatedText;
+      }
+    }
+  } catch (e) {
+    // ignore
+  }
+  return text;
+}
+
+async function classifyAndDescribeRepo(repo) {
+  const name = repo.name;
+  let category = null;
+  let cleanName = name;
+
+  if (/-MinecraftMod$/i.test(name)) {
+    category = 'MOD';
+    cleanName = name.replace(/-(\d+\.\d+(\.\d+)?-)?MinecraftMod$/i, '');
+  } else if (/-MinecraftPlugin$/i.test(name)) {
+    category = 'PLUGIN';
+    cleanName = name.replace(/-MinecraftPlugin$/i, '');
+  } else if (/^MR-CLI-/i.test(name)) {
+    category = 'CLI';
+    cleanName = name;
+  }
+
+  if (!category) return null;
+
+  // Ищем описания в README репозитория
+  const [readmeRuContent, readmeEnContent] = await Promise.all([
+    fetchRawRepoFile(name, 'README.md'),
+    fetchRawRepoFile(name, 'README.en.md')
+  ]);
+
+  let descRu = extractDescriptionFromMarkdown(readmeRuContent) || repo.description;
+  let descEn = extractDescriptionFromMarkdown(readmeEnContent);
+
+  if (!descRu) {
+    if (category === 'MOD') descRu = `Модификация ${cleanName} для Minecraft`;
+    else if (category === 'PLUGIN') descRu = `Плагин ${cleanName} для Minecraft серверов`;
+    else descRu = `Консольная утилита ${cleanName}`;
+  }
+
+  if (!descEn) {
+    // Если английского README нет, пробуем перевести русское описание
+    if (descRu && /[а-яА-ЯёЁ]/.test(descRu)) {
+      descEn = await translateText(descRu, 'ru', 'en');
+    } else {
+      descEn = descRu || `${cleanName} for Minecraft`;
+    }
+  }
+
+  // Очистка от лишних точек в конце или длинных строк если нужно
+  return {
+    category,
+    cleanName,
+    repoName: name,
+    url: repo.html_url,
+    descriptionRu: descRu,
+    descriptionEn: descEn
+  };
+}
+
 function insertRowIntoSection(content, sectionHeaderRegex, newRow) {
-  // Находим секцию от sectionHeaderRegex до следующего </details>
   const headerMatch = content.match(sectionHeaderRegex);
   if (!headerMatch) return content;
 
@@ -107,19 +170,21 @@ function insertRowIntoSection(content, sectionHeaderRegex, newRow) {
   const beforeSection = content.slice(0, detailsCloseIndex);
   const afterSection = content.slice(detailsCloseIndex);
 
-  // Находим последнюю строку таблицы перед закрывающим тегом
-  // Табличные строки начинаются с |
   const trimmedBefore = beforeSection.trimEnd();
   const updatedContent = trimmedBefore + '\n' + newRow + '\n\n' + afterSection;
   return updatedContent;
 }
 
-async function main() {
+async function updateCatalog() {
   console.log('Fetching public repositories for', USERNAME);
   const repos = await getAllRepos();
   console.log(`Found ${repos.length} repositories`);
 
-  const categorized = repos.map(classifyRepo).filter(Boolean);
+  const categorized = [];
+  for (const repo of repos) {
+    const item = await classifyAndDescribeRepo(repo);
+    if (item) categorized.push(item);
+  }
   console.log(`Matched ${categorized.length} categorized projects`);
 
   const files = [
@@ -152,7 +217,6 @@ async function main() {
     let fileModified = false;
 
     for (const item of categorized) {
-      // Проверяем, есть ли уже этот репозиторий в файле
       const escapedUrl = item.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const alreadyPresent = new RegExp(`\\[${item.cleanName}\\]\\(${escapedUrl}\\)`, 'i').test(content) ||
                              content.includes(item.url);
@@ -163,7 +227,7 @@ async function main() {
         const sectionRegex = fileInfo.sectionHeaders[item.category];
 
         if (sectionRegex) {
-          console.log(`[${fileInfo.path}] Adding new ${item.category}: ${item.cleanName}`);
+          console.log(`[${fileInfo.path}] Adding new ${item.category} (${fileInfo.lang}): ${item.cleanName} -> ${desc}`);
           content = insertRowIntoSection(content, sectionRegex, newRow);
           fileModified = true;
           anyModified = true;
@@ -186,7 +250,11 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error('Fatal error updating catalog:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  updateCatalog().catch(err => {
+    console.error('Fatal error updating catalog:', err);
+    process.exit(1);
+  });
+}
+
+module.exports = { updateCatalog, classifyAndDescribeRepo, insertRowIntoSection };
