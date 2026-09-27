@@ -67,27 +67,6 @@ async function getAllRepos() {
   return allRepos;
 }
 
-async function fetchRawRepoFile(repoName, fileName) {
-  for (const branch of ['main', 'master']) {
-    const url = `https://raw.githubusercontent.com/${USERNAME}/${repoName}/${branch}/${fileName}`;
-    const content = await httpsGet(url);
-    if (content) return content;
-  }
-  return null;
-}
-
-function extractDescriptionFromMarkdown(mdContent) {
-  if (!mdContent) return null;
-  const lines = mdContent.split('\n')
-    .map(l => l.trim())
-    .filter(l => l && !l.startsWith('#') && !l.startsWith('>') && !l.startsWith('!') && !l.startsWith('---') && !l.startsWith('<') && !l.startsWith('|'));
-  
-  if (lines.length > 0) {
-    return lines[0].replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim();
-  }
-  return null;
-}
-
 async function translateText(text, fromLang, toLang) {
   if (!text) return text;
   try {
@@ -123,26 +102,31 @@ async function classifyAndDescribeRepo(repo) {
 
   if (!category) return null;
 
-  // Ищем описания в README репозитория
-  const [readmeRuContent, readmeEnContent] = await Promise.all([
-    fetchRawRepoFile(name, 'README.md'),
-    fetchRawRepoFile(name, 'README.en.md')
-  ]);
+  // Берём описание напрямую из раздела About (поле description в GitHub API)
+  const aboutText = (repo.description || '').trim();
 
-  let descRu = extractDescriptionFromMarkdown(readmeRuContent) || repo.description;
-  let descEn = extractDescriptionFromMarkdown(readmeEnContent);
+  let descRu = '';
+  let descEn = '';
 
-  if (!descRu) {
-    if (category === 'MOD') descRu = `Модификация ${cleanName} для Minecraft`;
-    else if (category === 'PLUGIN') descRu = `Плагин ${cleanName} для Minecraft серверов`;
-    else descRu = `Консольная утилита ${cleanName}`;
-  }
-
-  if (!descEn) {
-    if (descRu && /[а-яА-ЯёЁ]/.test(descRu)) {
-      descEn = await translateText(descRu, 'ru', 'en');
+  if (aboutText) {
+    const hasCyrillic = /[а-яА-ЯёЁ]/.test(aboutText);
+    if (hasCyrillic) {
+      descRu = aboutText;
+      descEn = await translateText(aboutText, 'ru', 'en');
     } else {
-      descEn = descRu || `${cleanName} for Minecraft`;
+      descEn = aboutText;
+      descRu = await translateText(aboutText, 'en', 'ru');
+    }
+  } else {
+    if (category === 'MOD') {
+      descRu = `Модификация ${cleanName} для Minecraft`;
+      descEn = `${cleanName} mod for Minecraft`;
+    } else if (category === 'PLUGIN') {
+      descRu = `Плагин ${cleanName} для Minecraft серверов`;
+      descEn = `${cleanName} plugin for Minecraft servers`;
+    } else {
+      descRu = `Консольная утилита ${cleanName}`;
+      descEn = `Command-line utility ${cleanName}`;
     }
   }
 
