@@ -38,7 +38,7 @@ function fetchRepos(page = 1) {
 
     https.get(options, (res) => {
       let body = '';
-      res.on('data', chunk => data += chunk);
+      res.on('data', chunk => body += chunk);
       res.on('end', () => {
         if (res.statusCode < 200 || res.statusCode >= 300) {
           return reject(new Error(`GitHub API returned status ${res.statusCode}: ${body}`));
