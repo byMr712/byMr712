@@ -119,9 +119,15 @@ jobs:
               console.error('Error updating stats:', err);
             }
 
+      - name: Update Project Catalog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node .github/scripts/update-catalog.js
+
       - name: Commit & Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add github-stats.svg github-stats-en.svg github-streak.svg github-streak-en.svg
-          git diff --staged --quiet || (git commit -m "Auto-update profile stats [skip ci]" && git push) || echo "No changes"
+          git add github-stats.svg github-stats-en.svg github-streak.svg github-streak-en.svg README.md README.en.md
+          git diff --staged --quiet || (git commit -m "Auto-update profile stats and catalog [skip ci]" && git push) || echo "No changes"
