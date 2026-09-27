@@ -26,7 +26,7 @@ jobs:
             const username = 'byMr712';
             
             try {
-              // 1. Запрашиваем звёзды, PR, Issues и список активных лет
+              // 1. Запрашиваем звёзды, PR, Issues, календарь активности и список активных лет
               const basicQuery = `
                 query($login: String!) {
                   user(login: $login) {
@@ -43,6 +43,14 @@ jobs:
                     }
                     contributionsCollection {
                       contributionYears
+                      contributionCalendar {
+                        weeks {
+                          contributionDays {
+                            date
+                            contributionCount
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -55,6 +63,16 @@ jobs:
               const totalPRs = user.pullRequests.totalCount;
               const totalIssues = user.issues.totalCount;
               const years = user.contributionsCollection.contributionYears || [2026, 2025, 2024, 2023];
+
+              // Коммиты за сегодня, неделю и месяц из календаря контрибуций пользователя
+              const weeks = user.contributionsCollection.contributionCalendar?.weeks || [];
+              const allDays = weeks.flatMap(w => w.contributionDays || []);
+              const todayEntry = allDays[allDays.length - 1];
+              const commitsToday = todayEntry ? (todayEntry.contributionCount || 0) : 0;
+              const last7Days = allDays.slice(-7);
+              const commitsWeek = last7Days.reduce((sum, d) => sum + (d.contributionCount || 0), 0);
+              const last30Days = allDays.slice(-30);
+              const commitsMonth = last30Days.reduce((sum, d) => sum + (d.contributionCount || 0), 0);
               
               // 2. Суммируем все коммиты за все годы активности
               let totalCommits = 0;
@@ -84,6 +102,9 @@ jobs:
               if (fs.existsSync('github-stats.svg')) {
                 let svgRu = fs.readFileSync('github-stats.svg', 'utf8');
                 svgRu = svgRu.replace(/(<text id="stat-stars"[^>]*>)[^<]*(<\/text>)/, `$1${totalStars}$2`);
+                svgRu = svgRu.replace(/(<text id="stat-commits-today"[^>]*>)[^<]*(<\/text>)/, `$1${commitsToday}$2`);
+                svgRu = svgRu.replace(/(<text id="stat-commits-week"[^>]*>)[^<]*(<\/text>)/, `$1${commitsWeek}$2`);
+                svgRu = svgRu.replace(/(<text id="stat-commits-month"[^>]*>)[^<]*(<\/text>)/, `$1${commitsMonth}$2`);
                 svgRu = svgRu.replace(/(<text id="stat-commits"[^>]*>)[^<]*(<\/text>)/, `$1${totalCommits}$2`);
                 svgRu = svgRu.replace(/(<text id="stat-prs"[^>]*>)[^<]*(<\/text>)/, `$1${totalPRs}$2`);
                 svgRu = svgRu.replace(/(<text id="stat-issues"[^>]*>)[^<]*(<\/text>)/, `$1${totalIssues}$2`);
@@ -94,6 +115,9 @@ jobs:
               if (fs.existsSync('github-stats-en.svg')) {
                 let svgEn = fs.readFileSync('github-stats-en.svg', 'utf8');
                 svgEn = svgEn.replace(/(<text id="stat-stars"[^>]*>)[^<]*(<\/text>)/, `$1${totalStars}$2`);
+                svgEn = svgEn.replace(/(<text id="stat-commits-today"[^>]*>)[^<]*(<\/text>)/, `$1${commitsToday}$2`);
+                svgEn = svgEn.replace(/(<text id="stat-commits-week"[^>]*>)[^<]*(<\/text>)/, `$1${commitsWeek}$2`);
+                svgEn = svgEn.replace(/(<text id="stat-commits-month"[^>]*>)[^<]*(<\/text>)/, `$1${commitsMonth}$2`);
                 svgEn = svgEn.replace(/(<text id="stat-commits"[^>]*>)[^<]*(<\/text>)/, `$1${totalCommits}$2`);
                 svgEn = svgEn.replace(/(<text id="stat-prs"[^>]*>)[^<]*(<\/text>)/, `$1${totalPRs}$2`);
                 svgEn = svgEn.replace(/(<text id="stat-issues"[^>]*>)[^<]*(<\/text>)/, `$1${totalIssues}$2`);
