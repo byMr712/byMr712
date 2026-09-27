@@ -22,22 +22,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 
 | Mod | Description |
 |---|---|
-| **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Side mouse button navigation in GUI screens and sending chat messages via MMB |
-| **[Modded2Vanilla](https://github.com/byMr712/Modded2Vanilla-1.21.4-MinecraftMod)** | Seamless connection with content mods to vanilla servers without ID conflicts |
-| **[ViaFabricPlusBackPort](https://github.com/byMr712/ViaFabricPlusBackPort-1.21.4-MinecraftMod)** | Backport of ViaVersion protocols to 1.21.4 for connecting to newer servers up to 26.3 |
-| **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Procedural world generation of modern buildings, skyscrapers, and mansions (vanilla blocks) |
-| **[TotemCraft](https://github.com/byMr712/TotemCraft-1.21.4-MinecraftMod)** | Configurable totem of undying crafting recipe with in-game configuration interface |
-| **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Smooth cursor capture and comfortable mouse controls during Remote Desktop (RDP) sessions |
-| **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Complete spear weapon class: sprint attacks on mounts, lunges, and increased attack reach |
-| **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Durability and flight metrics HUD indicator with custom elytra support |
-| **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Modern animated redesign of in-game achievement and advancement toasts |
-| **[AdaptiveTooltips](https://github.com/byMr712/AdaptiveTooltips-1.21.4-MinecraftMod)** | Smart adaptive positioning and scaling for item tooltips |
-| **[MoreLapisLazuli](https://github.com/byMr712/MoreLapisLazuli-1.21.4-MinecraftMod)** | Complete set of lapis lazuli armor, tools, and decorative blocks |
-| **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Copper equipment and tools with log spam fixed |
-| **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Item quality modifiers and randomized RPG affixes/attributes |
-| **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Bounty boards with procedural tasks and valuable rewards |
-| **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Hardware rendering acceleration on NVIDIA GPUs using Mesh Shaders |
-| **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Port of The Sift dimension mod: eerie world, custom biomes, entities, ichor, and blocks |
+
 
 </details>
 

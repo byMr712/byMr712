@@ -22,22 +22,7 @@
 
 | Мод | Описание |
 |---|---|
-| **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Навигация боковыми кнопками мыши в окнах GUI и отправка сообщений по СКМ |
-| **[Modded2Vanilla](https://github.com/byMr712/Modded2Vanilla-1.21.4-MinecraftMod)** | Бесшовный вход с контентными модами на любые ванильные серверы без конфликтов ID |
-| **[ViaFabricPlusBackPort](https://github.com/byMr712/ViaFabricPlusBackPort-1.21.4-MinecraftMod)** | Бэкпорт протоколов ViaVersion на 1.21.4 для подключения к серверам до 26.3 |
-| **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Генерация современных зданий, небоскребов и особняков в мире (ванильные блоки) |
-| **[TotemCraft](https://github.com/byMr712/TotemCraft-1.21.4-MinecraftMod)** | Настраиваемый крафт тотема бессмертия с интерфейсом конфигурации |
-| **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Плавный захват курсора и комфортное управление мышью в RDP-сессиях |
-| **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Полноценный класс оружия копий: атака с разгона на скакунах, выпады и увеличенный Reach |
-| **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Индикатор прочности и параметров элитр в полёте с поддержкой кастомных элитр |
-| **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Красивый современный редизайн всплывающих тостов достижений |
-| **[AdaptiveTooltips](https://github.com/byMr712/AdaptiveTooltips-1.21.4-MinecraftMod)** | Умное адаптивное позиционирование и масштабирование всплывающих подсказок предметов |
-| **[MoreLapisLazuli](https://github.com/byMr712/MoreLapisLazuli-1.21.4-MinecraftMod)** | Набор брони, инструментов и блоков из лазурита |
-| **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Медная экипировка и инструменты с устранением спама в логах |
-| **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Модификаторы качества и случайные характеристики для предметов |
-| **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Доски объявлений с заданиями и ценными наградами |
-| **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Ускорение рендеринга на видеокартах NVIDIA с использованием Mesh Shaders |
-| **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Потустороннее измерение The Sift, новые биомы, уникальные существа, ихор и блоки |
+
 
 </details>
 
