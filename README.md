@@ -22,7 +22,22 @@
 
 | Мод | Описание |
 |---|---|
-
+| **[AdaptiveTooltips](https://github.com/byMr712/AdaptiveTooltips-1.21.4-MinecraftMod)** | Сборка мода AdaptiveTooltips для Minecraft 1.21.4 |
+| **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Сборка мода Bountiful для Minecraft 1.21.4 |
+| **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Сборка мода Tiered для Minecraft 1.21.4 |
+| **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Сборка мода ExlineCoppeRequipment для Minecraft 1.21.4 с исправлением спама в логах |
+| **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Сборка новой версии мода FancyToasts с исправлениями для Minecraft 1.21.4 |
+| **[TotemCraft](https://github.com/byMr712/TotemCraft-1.21.4-MinecraftMod)** | Мод для добавления крафта тотема бессмертия для Minecraft 1.21.4 |
+| **[MoreLapisLazuli](https://github.com/byMr712/MoreLapisLazuli-1.21.4-MinecraftMod)** | Сборка мода MoreLapisLazuli для Minecraft 1.21.4 |
+| **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Сборка мода Spears для Minecraft 1.21.4 |
+| **[ViaFabricPlusBackPort](https://github.com/byMr712/ViaFabricPlusBackPort-1.21.4-MinecraftMod)** | Сборка мода ViaFabricPlus для Minecraft 1.21.4 с доступными новыми версиями для подключения до 26.3 |
+| **[Modded2Vanilla](https://github.com/byMr712/Modded2Vanilla-1.21.4-MinecraftMod)** | Клиентский мод для Minecraft 1.21.4 (Fabric), устраняющий разногласия модифицированного клиента с ванильными серверами. |
+| **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Сборка мода Nvidium для Minecraft 1.21.4 |
+| **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Сборка мода SimpleElytraHud для Minecraft 1.21.4 с поддержкой элитр из модов |
+| **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Мод для генерации в мире новых построек-структур в стиле модерн домов для Minecraft 1.21.4 |
+| **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Сборка новой мода RDPMouse для Minecraft 1.21.4 |
+| **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Клиентский мод для Minecraft 1.21.4 (Fabric), позволяет клавишами вверх/вниз на вашей мыши управлять окнами интерфейса и не только, не мешая работе мыши в самой игре |
+| **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Сборка мода Mielon's The Sift для Minecraft 1.21.4 |
 
 </details>
 

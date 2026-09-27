@@ -22,7 +22,22 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 
 | Mod | Description |
 |---|---|
-
+| **[AdaptiveTooltips](https://github.com/byMr712/AdaptiveTooltips-1.21.4-MinecraftMod)** | Build AdaptiveTooltips mod for Minecraft 1.21.4 |
+| **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Build mod Bountiful for Minecraft 1.21.4 |
+| **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Tiered Mod Build for Minecraft 1.21.4 |
+| **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Build ExlineCoppeRequipment mod for Minecraft 1.21.4 with spam correction in logs |
+| **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Building a new version of the FancyToasts mod with fixes for Minecraft 1.21.4 |
+| **[TotemCraft](https://github.com/byMr712/TotemCraft-1.21.4-MinecraftMod)** | Mod for adding immortality totem crafting for Minecraft 1.21.4 |
+| **[MoreLapisLazuli](https://github.com/byMr712/MoreLapisLazuli-1.21.4-MinecraftMod)** | Build MoreLapisLazuli mod for Minecraft 1.21.4 |
+| **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Spears Mod Build for Minecraft 1.21.4 |
+| **[ViaFabricPlusBackPort](https://github.com/byMr712/ViaFabricPlusBackPort-1.21.4-MinecraftMod)** | Build ViaFabricPlus mod for Minecraft 1.21.4 with available new versions for connection up to 26.3 |
+| **[Modded2Vanilla](https://github.com/byMr712/Modded2Vanilla-1.21.4-MinecraftMod)** | Client mod for Minecraft 1.21.4 (Fabric), which resolves the differences between the modified client and vanilla servers. |
+| **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Build Nvidium mod for Minecraft 1.21.4 |
+| **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Building a SimpleElytraHud mod for Minecraft 1.21.4 with support for eliters from mods |
+| **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Mod for the generation of new buildings-structures in the world in the style of modern houses for Minecraft 1.21.4 |
+| **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Build a new RDPMouse mod for Minecraft 1.21.4 |
+| **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Client mod for Minecraft 1.21.4 (Fabric), allows up/down keys on your mouse to control the interface windows and not only, without interfering with the mouse in the game itself |
+| **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Mielon's The Sift Mod Build for Minecraft 1.21.4 |
 
 </details>
 
