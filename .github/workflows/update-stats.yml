@@ -2,7 +2,7 @@ name: Auto Update Profile Stats
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # Каждые 6 часов
+    - cron: '0 * * * *' # Каждый час
   push:
     branches:
       - main
