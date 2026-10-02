@@ -6,15 +6,27 @@ async function main() {
   const token = process.env.GITHUB_TOKEN;
   const username = 'byMr712';
   
-  // 1. Получаем дату и время предыдущего коммита в текущем репозитории
+  // 1. Получаем дату и время предыдущего авто-коммита бота
   let lastCommitDate;
   try {
-    const rawDate = execSync('git log -1 --format=%cI', { encoding: 'utf8' }).trim();
-    if (rawDate) {
-      lastCommitDate = new Date(rawDate).toISOString();
+    const botDate = execSync('git log --author="github-actions" -n 1 --format=%cI', { encoding: 'utf8' }).trim();
+    if (botDate) {
+      lastCommitDate = new Date(botDate).toISOString();
     }
   } catch (e) {
-    console.error('Failed to get last commit date:', e.message);
+    console.error('Failed to get last bot commit date:', e.message);
+  }
+
+  // Если коммита бота не найдено, берем предыдущий коммит
+  if (!lastCommitDate) {
+    try {
+      const rawDate = execSync('git log -1 --format=%cI', { encoding: 'utf8' }).trim();
+      if (rawDate) {
+        lastCommitDate = new Date(rawDate).toISOString();
+      }
+    } catch (e) {
+      console.error('Failed to get last commit date:', e.message);
+    }
   }
 
   // Если не удалось определить, берем последние 24 часа
