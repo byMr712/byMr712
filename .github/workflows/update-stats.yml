@@ -109,6 +109,10 @@ jobs:
 
               allDays.sort((a, b) => a.date.localeCompare(b.date));
 
+              // Отсекаем будущие дни календарного года (оставляем дни только до сегодняшнего числа включительно)
+              const todayStr = new Date().toISOString().slice(0, 10);
+              allDays = allDays.filter(d => d.date <= todayStr);
+
               // Коммиты за сегодня, неделю и месяц
               const todayEntry = allDays[allDays.length - 1];
               const commitsToday = todayEntry ? (todayEntry.contributionCount || 0) : 0;
@@ -197,7 +201,7 @@ jobs:
                 if (day.contributionCount > 0) {
                   if (tempStreak === 0) tempStart = day.date;
                   tempStreak++;
-                  if (tempStreak > longestStreak) {
+                  if (tempStreak >= longestStreak) {
                     longestStreak = tempStreak;
                     longestStart = tempStart;
                     longestEnd = day.date;
