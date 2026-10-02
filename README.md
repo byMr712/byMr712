@@ -38,6 +38,7 @@
 | **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Сборка новой мода RDPMouse для Minecraft 1.21.4 |
 | **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Клиентский мод для Minecraft 1.21.4 (Fabric), позволяет клавишами вверх/вниз на вашей мыши управлять окнами интерфейса и не только, не мешая работе мыши в самой игре |
 | **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Сборка мода Mielon's The Sift для Minecraft 1.21.4 |
+| **[RecipeEditor](https://github.com/byMr712/RecipeEditor-1.21.4-MinecraftMod)** | Мод для добавления крафта тотема бессмертия для Minecraft 1.21.4 |
 
 </details>
 

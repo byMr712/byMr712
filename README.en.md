@@ -38,6 +38,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Build a new RDPMouse mod for Minecraft 1.21.4 |
 | **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Client mod for Minecraft 1.21.4 (Fabric), allows up/down keys on your mouse to control the interface windows and not only, without interfering with the mouse in the game itself |
 | **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Mielon's The Sift Mod Build for Minecraft 1.21.4 |
+| **[RecipeEditor](https://github.com/byMr712/RecipeEditor-1.21.4-MinecraftMod)** | Mod for adding immortality totem crafting for Minecraft 1.21.4 |
 
 </details>
 
