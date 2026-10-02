@@ -224,9 +224,20 @@ jobs:
         run: |
           node .github/scripts/update-catalog.js
 
+      - name: Generate Commit Message
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node .github/scripts/generate-commit-msg.js
+
       - name: Commit & Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add github-stats.svg github-stats-en.svg github-streak.svg github-streak-en.svg README.md README.en.md
-          git diff --staged --quiet || (git commit -m "Auto-update profile stats and catalog [skip ci]" && git push) || echo "No changes"
+          if [ -f .commit_msg.txt ] && [ -s .commit_msg.txt ]; then
+            git diff --staged --quiet || (git commit -F .commit_msg.txt && git push) || echo "No changes"
+          else
+            git diff --staged --quiet || (git commit -m "Auto-update profile stats and catalog [skip ci]" && git push) || echo "No changes"
+          fi
+
