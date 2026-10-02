@@ -64,26 +64,25 @@ jobs:
               const totalStars = user.repositories.nodes.reduce((acc, r) => acc + (r.stargazerCount || 0), 0);
               const totalPRs = user.pullRequests.totalCount;
               const totalIssues = user.issues.totalCount;
-              const years = user.contributionsCollection.contributionYears || [2026, 2025, 2024, 2023];
+              const sortedYears = (user.contributionsCollection.contributionYears || [2026, 2025, 2024, 2023]).slice().sort((a, b) => a - b);
 
-              // Коммиты за сегодня, неделю и месяц из календаря контрибуций пользователя
-              const weeks = user.contributionsCollection.contributionCalendar?.weeks || [];
-              const allDays = weeks.flatMap(w => w.contributionDays || []);
-              const todayEntry = allDays[allDays.length - 1];
-              const commitsToday = todayEntry ? (todayEntry.contributionCount || 0) : 0;
-              const last7Days = allDays.slice(-7);
-              const commitsWeek = last7Days.reduce((sum, d) => sum + (d.contributionCount || 0), 0);
-              const last30Days = allDays.slice(-30);
-              const commitsMonth = last30Days.reduce((sum, d) => sum + (d.contributionCount || 0), 0);
-              
-              // 2. Суммируем все коммиты за все годы активности
+              let allDays = [];
               let totalCommits = 0;
-              for (const year of years) {
+
+              for (const year of sortedYears) {
                 const yearQuery = `
                   query($login: String!, $from: DateTime!, $to: DateTime!) {
                     user(login: $login) {
                       contributionsCollection(from: $from, to: $to) {
                         totalCommitContributions
+                        contributionCalendar {
+                          weeks {
+                            contributionDays {
+                              date
+                              contributionCount
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -93,9 +92,29 @@ jobs:
                   from: `${year}-01-01T00:00:00Z`,
                   to: `${year}-12-31T23:59:59Z`
                 });
-                totalCommits += yearRes.user.contributionsCollection.totalCommitContributions || 0;
+                const cc = yearRes.user?.contributionsCollection;
+                totalCommits += cc?.totalCommitContributions || 0;
+
+                const yrWeeks = cc?.contributionCalendar?.weeks || [];
+                for (const w of yrWeeks) {
+                  for (const d of (w.contributionDays || [])) {
+                    if (!allDays.some(x => x.date === d.date)) {
+                      allDays.push(d);
+                    }
+                  }
+                }
               }
-              
+
+              allDays.sort((a, b) => a.date.localeCompare(b.date));
+
+              // Коммиты за сегодня, неделю и месяц
+              const todayEntry = allDays[allDays.length - 1];
+              const commitsToday = todayEntry ? (todayEntry.contributionCount || 0) : 0;
+              const last7Days = allDays.slice(-7);
+              const commitsWeek = last7Days.reduce((sum, d) => sum + (d.contributionCount || 0), 0);
+              const last30Days = allDays.slice(-30);
+              const commitsMonth = last30Days.reduce((sum, d) => sum + (d.contributionCount || 0), 0);
+
               if (totalCommits === 0) {
                 totalCommits = 501;
               }
