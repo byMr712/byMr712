@@ -137,17 +137,18 @@ async function main() {
     }
   }
 
-  // Читаем список добавленных в каталог репозиториев
-  let catalogAdded = [];
-  if (fs.existsSync('.catalog_added.json')) {
+  // Читаем список изменений каталога (добавленные, обновленные, удаленные)
+  let catalogChanges = { added: [], updated: [], removed: [] };
+  if (fs.existsSync('.catalog_changes.json')) {
     try {
-      catalogAdded = JSON.parse(fs.readFileSync('.catalog_added.json', 'utf8')) || [];
+      catalogChanges = JSON.parse(fs.readFileSync('.catalog_changes.json', 'utf8')) || catalogChanges;
     } catch (e) {
-      console.error('Error reading .catalog_added.json:', e.message);
+      console.error('Error reading .catalog_changes.json:', e.message);
     }
   }
 
-  for (const repoName of catalogAdded) {
+  // Обрабатываем добавленные репозитории
+  for (const repoName of (catalogChanges.added || [])) {
     const existing = repoCommits.find(r => r.name.toLowerCase() === repoName.toLowerCase());
     if (existing) {
       existing.addedToCatalog = true;
@@ -156,6 +157,34 @@ async function main() {
         name: repoName,
         commits: [],
         addedToCatalog: true
+      });
+    }
+  }
+
+  // Обрабатываем обновленные описания репозиториев
+  for (const repoName of (catalogChanges.updated || [])) {
+    const existing = repoCommits.find(r => r.name.toLowerCase() === repoName.toLowerCase());
+    if (existing) {
+      existing.updatedCatalogDesc = true;
+    } else {
+      repoCommits.push({
+        name: repoName,
+        commits: [],
+        updatedCatalogDesc: true
+      });
+    }
+  }
+
+  // Обрабатываем удаленные репозитории
+  for (const repoName of (catalogChanges.removed || [])) {
+    const existing = repoCommits.find(r => r.name.toLowerCase() === repoName.toLowerCase());
+    if (existing) {
+      existing.removedFromCatalog = true;
+    } else {
+      repoCommits.push({
+        name: repoName,
+        commits: [],
+        removedFromCatalog: true
       });
     }
   }
@@ -170,6 +199,12 @@ async function main() {
       const lines = [`# ${item.name}`];
       if (item.addedToCatalog) {
         lines.push('- Added to project catalog');
+      }
+      if (item.updatedCatalogDesc) {
+        lines.push('- Updated catalog description');
+      }
+      if (item.removedFromCatalog) {
+        lines.push('- Removed from project catalog');
       }
       if (item.commits && item.commits.length > 0) {
         for (const msg of item.commits) {

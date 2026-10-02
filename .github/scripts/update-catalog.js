@@ -4,7 +4,7 @@ const https = require('https');
 const USERNAME = 'byMr712';
 
 function httpsGet(url, headers = {}) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     https.get(url, { headers: { 'User-Agent': 'NodeJS-Catalog-Updater', ...headers } }, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
@@ -44,8 +44,7 @@ function fetchRepos(page = 1) {
           return reject(new Error(`GitHub API returned status ${res.statusCode}: ${body}`));
         }
         try {
-          const json = JSON.parse(body);
-          resolve(json);
+          resolve(JSON.parse(body));
         } catch (e) {
           reject(e);
         }
@@ -78,11 +77,16 @@ async function translateText(text, fromLang, toLang) {
         return json.responseData.translatedText;
       }
     }
-  } catch (e) {
-    // fallback
-  }
+  } catch (e) {}
   return text;
 }
+
+const cliNames = [
+  'AndroidMediaControlsWindows',
+  'SteganoMIX',
+  'FileBrowserQuantumForTOS',
+  'DeskControl-Reloaded'
+];
 
 async function classifyAndDescribeRepo(repo) {
   const name = repo.name;
@@ -95,16 +99,14 @@ async function classifyAndDescribeRepo(repo) {
   } else if (/-MinecraftPlugin$/i.test(name)) {
     category = 'PLUGIN';
     cleanName = name.replace(/-MinecraftPlugin$/i, '');
-  } else if (/^MR-CLI-/i.test(name)) {
+  } else if (/^MR-CLI-/i.test(name) || cliNames.includes(name)) {
     category = 'CLI';
     cleanName = name;
   }
 
   if (!category) return null;
 
-  // Берём описание напрямую из раздела About (поле description в GitHub API)
   const aboutText = (repo.description || '').trim();
-
   let descRu = '';
   let descEn = '';
 
@@ -140,20 +142,46 @@ async function classifyAndDescribeRepo(repo) {
   };
 }
 
-function insertRowIntoSection(content, sectionHeaderRegex, newRow) {
-  const headerMatch = content.match(sectionHeaderRegex);
-  if (!headerMatch) return content;
+function replaceSectionTable(content, sectionRegex, tableHeaders, rows) {
+  const match = content.match(sectionRegex);
+  if (!match) return { content, modified: false };
 
-  const headerIndex = headerMatch.index;
-  const detailsCloseIndex = content.indexOf('</details>', headerIndex);
-  if (detailsCloseIndex === -1) return content;
+  const summaryStartIndex = match.index;
+  const summaryCloseIndex = content.indexOf('</summary>', summaryStartIndex);
+  if (summaryCloseIndex === -1) return { content, modified: false };
 
-  const beforeSection = content.slice(0, detailsCloseIndex);
-  const afterSection = content.slice(detailsCloseIndex);
+  const detailsCloseIndex = content.indexOf('</details>', summaryCloseIndex);
+  if (detailsCloseIndex === -1) return { content, modified: false };
 
-  const trimmedBefore = beforeSection.trimEnd();
-  const updatedContent = trimmedBefore + '\n' + newRow + '\n\n' + afterSection;
-  return updatedContent;
+  const beforeSummary = content.slice(0, summaryCloseIndex + '</summary>'.length);
+  const afterDetails = content.slice(detailsCloseIndex);
+
+  const newTableContent = '\n<br>\n\n' + tableHeaders.join('\n') + '\n' + rows.join('\n') + '\n\n';
+  const newContent = beforeSummary + newTableContent + afterDetails;
+
+  const oldSectionBody = content.slice(summaryCloseIndex + '</summary>'.length, detailsCloseIndex);
+  const modified = oldSectionBody.trim() !== newTableContent.trim();
+
+  return { content: newContent, modified };
+}
+
+function extractExistingRows(sectionBody) {
+  const rows = [];
+  const lines = sectionBody.split('\n');
+  for (const line of lines) {
+    const m = line.match(/^\|\s*\*\*\[(.*?)\]\((https:\/\/github\.com\/[^\)]+)\)\*\*\s*\|\s*(.*?)\s*\|/);
+    if (m) {
+      const urlParts = m[2].split('/');
+      const repoName = urlParts[urlParts.length - 1];
+      rows.push({
+        cleanName: m[1].trim(),
+        url: m[2].trim(),
+        repoName: repoName,
+        desc: m[3].trim()
+      });
+    }
+  }
+  return rows;
 }
 
 async function updateCatalog() {
@@ -168,74 +196,134 @@ async function updateCatalog() {
   }
   console.log(`Matched ${categorized.length} categorized projects`);
 
-  const files = [
+  const categorizedByCat = { MOD: [], PLUGIN: [], CLI: [] };
+  for (const item of categorized) {
+    categorizedByCat[item.category].push(item);
+  }
+
+  const configs = [
     {
       path: 'README.md',
       lang: 'ru',
-      sectionHeaders: {
-        MOD: /<summary>\s*<b>\s*Minecraft моды/i,
-        PLUGIN: /<summary>\s*<b>\s*Minecraft плагины/i,
-        CLI: /<summary>\s*<b>\s*CLI утилиты/i
+      sections: {
+        MOD: {
+          regex: /<summary>\s*<b>\s*Minecraft моды/i,
+          headers: ['| Мод | Описание |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
+        },
+        PLUGIN: {
+          regex: /<summary>\s*<b>\s*Minecraft плагины/i,
+          headers: ['| Плагин | Описание |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
+        },
+        CLI: {
+          regex: /<summary>\s*<b>\s*CLI утилиты/i,
+          headers: ['| Утилита / Программа | Описание |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
+        }
       }
     },
     {
       path: 'README.en.md',
       lang: 'en',
-      sectionHeaders: {
-        MOD: /<summary>\s*<b>\s*Minecraft Mods/i,
-        PLUGIN: /<summary>\s*<b>\s*Minecraft Server Plugins/i,
-        CLI: /<summary>\s*<b>\s*CLI Utilities/i
+      sections: {
+        MOD: {
+          regex: /<summary>\s*<b>\s*Minecraft Mods/i,
+          headers: ['| Mod | Description |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
+        },
+        PLUGIN: {
+          regex: /<summary>\s*<b>\s*Minecraft Server Plugins/i,
+          headers: ['| Plugin | Description |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
+        },
+        CLI: {
+          regex: /<summary>\s*<b>\s*CLI Utilities/i,
+          headers: ['| Utility / Tool | Description |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
+        }
       }
     }
   ];
 
   let anyModified = false;
-  const addedRepos = new Set();
+  const added = new Set();
+  const updated = new Set();
+  const removed = new Set();
 
-  for (const fileInfo of files) {
-    if (!fs.existsSync(fileInfo.path)) continue;
+  for (const cfg of configs) {
+    if (!fs.existsSync(cfg.path)) continue;
 
-    let content = fs.readFileSync(fileInfo.path, 'utf8');
+    let content = fs.readFileSync(cfg.path, 'utf8');
     let fileModified = false;
 
-    for (const item of categorized) {
-      const escapedUrl = item.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const alreadyPresent = new RegExp(`\\[${item.cleanName}\\]\\(${escapedUrl}\\)`, 'i').test(content) ||
-                             content.includes(item.url);
+    for (const [cat, sec] of Object.entries(cfg.sections)) {
+      const match = content.match(sec.regex);
+      if (!match) continue;
 
-      if (!alreadyPresent) {
-        const desc = fileInfo.lang === 'ru' ? item.descriptionRu : item.descriptionEn;
-        const newRow = `| **[${item.cleanName}](${item.url})** | ${desc} |`;
-        const sectionRegex = fileInfo.sectionHeaders[item.category];
+      const summaryStartIndex = match.index;
+      const summaryCloseIndex = content.indexOf('</summary>', summaryStartIndex);
+      const detailsCloseIndex = content.indexOf('</details>', summaryCloseIndex);
+      const oldBody = content.slice(summaryCloseIndex + '</summary>'.length, detailsCloseIndex);
+      const oldRows = extractExistingRows(oldBody);
 
-        if (sectionRegex) {
-          console.log(`[${fileInfo.path}] Adding new ${item.category} (${fileInfo.lang}): ${item.cleanName} -> ${desc}`);
-          content = insertRowIntoSection(content, sectionRegex, newRow);
-          fileModified = true;
-          anyModified = true;
-          addedRepos.add(item.name || item.cleanName);
+      const newItems = categorizedByCat[cat] || [];
+      const newRows = newItems.map(sec.getRow);
+
+      // Отслеживаем изменения
+      for (const newItem of newItems) {
+        const old = oldRows.find(o => o.url.toLowerCase() === newItem.url.toLowerCase() || o.repoName.toLowerCase() === newItem.repoName.toLowerCase());
+        if (!old) {
+          added.add(newItem.repoName);
+        } else {
+          const newDesc = cfg.lang === 'ru' ? newItem.descriptionRu : newItem.descriptionEn;
+          if (old.desc !== newDesc || old.cleanName !== newItem.cleanName) {
+            updated.add(newItem.repoName);
+          }
         }
+      }
+
+      for (const old of oldRows) {
+        const existsInNew = newItems.some(n => n.url.toLowerCase() === old.url.toLowerCase() || n.repoName.toLowerCase() === old.repoName.toLowerCase());
+        if (!existsInNew) {
+          removed.add(old.repoName || old.cleanName);
+        }
+      }
+
+      const res = replaceSectionTable(content, sec.regex, sec.headers, newRows);
+      if (res.modified) {
+        content = res.content;
+        fileModified = true;
+        anyModified = true;
       }
     }
 
     if (fileModified) {
-      fs.writeFileSync(fileInfo.path, content, 'utf8');
-      console.log(`Successfully updated ${fileInfo.path}`);
+      fs.writeFileSync(cfg.path, content, 'utf8');
+      console.log(`Successfully updated ${cfg.path}`);
     } else {
-      console.log(`No new items for ${fileInfo.path}`);
+      console.log(`No table changes for ${cfg.path}`);
     }
   }
 
-  if (addedRepos.size > 0) {
-    fs.writeFileSync('.catalog_added.json', JSON.stringify(Array.from(addedRepos)), 'utf8');
-  } else if (fs.existsSync('.catalog_added.json')) {
-    fs.unlinkSync('.catalog_added.json');
+  const catalogChanges = {
+    added: Array.from(added),
+    updated: Array.from(updated).filter(x => !added.has(x)),
+    removed: Array.from(removed)
+  };
+
+  const hasChanges = catalogChanges.added.length > 0 || catalogChanges.updated.length > 0 || catalogChanges.removed.length > 0;
+  if (hasChanges) {
+    fs.writeFileSync('.catalog_changes.json', JSON.stringify(catalogChanges), 'utf8');
+    console.log('Catalog changes recorded:', catalogChanges);
+  } else if (fs.existsSync('.catalog_changes.json')) {
+    fs.unlinkSync('.catalog_changes.json');
   }
 
   if (anyModified) {
-    console.log('Catalog update complete: files were modified.');
+    console.log('Catalog sync complete: files were modified.');
   } else {
-    console.log('Catalog update complete: everything is up to date.');
+    console.log('Catalog sync complete: everything is up to date.');
   }
 }
 
@@ -246,4 +334,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { updateCatalog, classifyAndDescribeRepo, insertRowIntoSection };
+module.exports = { updateCatalog, classifyAndDescribeRepo, replaceSectionTable };
