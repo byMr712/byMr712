@@ -190,6 +190,7 @@ async function updateCatalog() {
   ];
 
   let anyModified = false;
+  const addedRepos = new Set();
 
   for (const fileInfo of files) {
     if (!fs.existsSync(fileInfo.path)) continue;
@@ -212,6 +213,7 @@ async function updateCatalog() {
           content = insertRowIntoSection(content, sectionRegex, newRow);
           fileModified = true;
           anyModified = true;
+          addedRepos.add(item.name || item.cleanName);
         }
       }
     }
@@ -222,6 +224,12 @@ async function updateCatalog() {
     } else {
       console.log(`No new items for ${fileInfo.path}`);
     }
+  }
+
+  if (addedRepos.size > 0) {
+    fs.writeFileSync('.catalog_added.json', JSON.stringify(Array.from(addedRepos)), 'utf8');
+  } else if (fs.existsSync('.catalog_added.json')) {
+    fs.unlinkSync('.catalog_added.json');
   }
 
   if (anyModified) {

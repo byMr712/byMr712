@@ -137,6 +137,29 @@ async function main() {
     }
   }
 
+  // Читаем список добавленных в каталог репозиториев
+  let catalogAdded = [];
+  if (fs.existsSync('.catalog_added.json')) {
+    try {
+      catalogAdded = JSON.parse(fs.readFileSync('.catalog_added.json', 'utf8')) || [];
+    } catch (e) {
+      console.error('Error reading .catalog_added.json:', e.message);
+    }
+  }
+
+  for (const repoName of catalogAdded) {
+    const existing = repoCommits.find(r => r.name.toLowerCase() === repoName.toLowerCase());
+    if (existing) {
+      existing.addedToCatalog = true;
+    } else {
+      repoCommits.push({
+        name: repoName,
+        commits: [],
+        addedToCatalog: true
+      });
+    }
+  }
+
   // Формируем итоговое сообщение коммита
   let commitTitle = 'Auto-update profile stats and catalog [skip ci]';
   let commitBody = '';
@@ -144,12 +167,16 @@ async function main() {
   if (repoCommits.length > 0) {
     const sections = [];
     for (const item of repoCommits) {
-      // Строго проверяем, что коммиты есть
+      const lines = [`# ${item.name}`];
+      if (item.addedToCatalog) {
+        lines.push('- Added to project catalog');
+      }
       if (item.commits && item.commits.length > 0) {
-        const lines = [`# ${item.name}`];
         for (const msg of item.commits) {
           lines.push(`- Commit: ${msg}`);
         }
+      }
+      if (lines.length > 1) {
         sections.push(lines.join('\n'));
       }
     }
