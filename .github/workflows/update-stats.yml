@@ -214,6 +214,21 @@ jobs:
               const longestRangeRu = longestStart && longestEnd ? `${formatStreakDate(longestStart, 'ru')} - ${formatStreakDate(longestEnd, 'ru')}` : 'Нет';
               const longestRangeEn = longestStart && longestEnd ? `${formatStreakDate(longestStart, 'en')} - ${formatStreakDate(longestEnd, 'en')}` : 'None';
 
+              const longestStartYear = longestStart ? new Date(longestStart + 'T00:00:00Z').getUTCFullYear() : null;
+              const longestEndYear = longestEnd ? new Date(longestEnd + 'T00:00:00Z').getUTCFullYear() : null;
+
+              let longestYearRu = '';
+              let longestYearEn = '';
+              if (longestStartYear && longestEndYear) {
+                if (longestStartYear === longestEndYear) {
+                  longestYearRu = `${longestStartYear} год.`;
+                  longestYearEn = `${longestStartYear}`;
+                } else {
+                  longestYearRu = `${longestStartYear} - ${longestEndYear} гг.`;
+                  longestYearEn = `${longestStartYear} - ${longestEndYear}`;
+                }
+              }
+
               // Обновляем русскую версию Streak SVG
               if (fs.existsSync('github-streak.svg')) {
                 let streakRu = fs.readFileSync('github-streak.svg', 'utf8');
@@ -222,6 +237,7 @@ jobs:
                 streakRu = streakRu.replace(/(<text id="streak-current-range"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${currentRangeRu}\n        $2`);
                 streakRu = streakRu.replace(/(<text id="streak-longest-count"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestStreak}\n        $2`);
                 streakRu = streakRu.replace(/(<text id="streak-longest-range"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestRangeRu}\n        $2`);
+                streakRu = streakRu.replace(/(<text id="streak-longest-year"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestYearRu}\n        $2`);
                 fs.writeFileSync('github-streak.svg', streakRu);
               }
 
@@ -233,6 +249,7 @@ jobs:
                 streakEn = streakEn.replace(/(<text id="streak-current-range"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${currentRangeEn}\n        $2`);
                 streakEn = streakEn.replace(/(<text id="streak-longest-count"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestStreak}\n        $2`);
                 streakEn = streakEn.replace(/(<text id="streak-longest-range"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestRangeEn}\n        $2`);
+                streakEn = streakEn.replace(/(<text id="streak-longest-year"[^>]*>)[^<]*(<\/text>)/, `$1\n          ${longestYearEn}\n        $2`);
                 fs.writeFileSync('github-streak-en.svg', streakEn);
               }
 

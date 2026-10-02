@@ -100,6 +100,13 @@
           25 Sep - 2 Oct
         </text>
       </g>
+
+      <!-- Longest Streak year -->
+      <g transform="translate(412.5, 134)">
+        <text id="streak-longest-year" x="0" y="32" stroke-width="0" text-anchor="middle" fill="#38BDAE" stroke="none" font-family="'Segoe UI', Ubuntu, sans-serif" font-weight="400" font-size="12px" font-style="normal" style="opacity: 0; animation: fadein 0.5s linear forwards 1.5s">
+          2026
+        </text>
+      </g>
     </g>
   </g>
 </svg>
