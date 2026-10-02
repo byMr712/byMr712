@@ -63,8 +63,10 @@ jobs:
               
               const totalStars = user.repositories.nodes.reduce((acc, r) => acc + (r.stargazerCount || 0), 0);
               const totalPRs = user.pullRequests.totalCount;
-              const totalIssues = user.issues.totalCount;
-              const sortedYears = (user.contributionsCollection.contributionYears || [2026, 2025, 2024, 2023]).slice().sort((a, b) => a - b);
+              const currentYear = new Date().getUTCFullYear();
+              const defaultYears = [];
+              for (let y = 2023; y <= currentYear; y++) defaultYears.push(y);
+              const sortedYears = (user.contributionsCollection?.contributionYears || defaultYears).slice().sort((a, b) => a - b);
 
               let allDays = [];
               let totalCommits = 0;
