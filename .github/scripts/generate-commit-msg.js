@@ -27,18 +27,20 @@ async function main() {
   const query = `
     query($login: String!, $since: GitTimestamp!) {
       user(login: $login) {
-        repositories(first: 30, orderBy: {field: PUSHED_AT, direction: DESC}, ownerAffiliations: OWNER) {
+        repositories(first: 100, orderBy: {field: PUSHED_AT, direction: DESC}, ownerAffiliations: OWNER) {
           nodes {
             name
             pushedAt
             defaultBranchRef {
               target {
                 ... on Commit {
-                  history(first: 30, since: $since) {
+                  history(first: 100, since: $since) {
                     nodes {
                       message
                       committedDate
                       author {
+                        name
+                        email
                         user {
                           login
                         }
@@ -95,7 +97,9 @@ async function main() {
         const historyNodes = repo.defaultBranchRef?.target?.history?.nodes || [];
         const userCommits = historyNodes.filter(c => {
           const authorLogin = c.author?.user?.login;
-          // Учитываем коммиты пользователя
+          const authorName = c.author?.name || '';
+          if (authorLogin && authorLogin.toLowerCase().includes('bot')) return false;
+          if (authorName.toLowerCase().includes('[bot]')) return false;
           return authorLogin === username || !authorLogin;
         });
 
