@@ -70,8 +70,18 @@ jobs:
               const defaultYears = [];
               for (let y = 2023; y <= currentYear; y++) defaultYears.push(y);
               const sortedYears = (user.contributionsCollection?.contributionYears || defaultYears).slice().sort((a, b) => a - b);
+              const todayStr = nowUtc8.toISOString().slice(0, 10);
 
-              let allDays = [];
+              // 1. Создаем непрерывный календарь дней от 2023-01-01 до сегодня по UTC+8
+              const daysMap = {};
+              let cur = new Date('2023-01-01T00:00:00Z');
+              const end = new Date(todayStr + 'T00:00:00Z');
+              while (cur <= end) {
+                const dStr = cur.toISOString().slice(0, 10);
+                daysMap[dStr] = 0;
+                cur.setUTCDate(cur.getUTCDate() + 1);
+              }
+
               let totalCommits = 0;
 
               for (const year of sortedYears) {
@@ -80,12 +90,28 @@ jobs:
                     user(login: $login) {
                       contributionsCollection(from: $from, to: $to) {
                         totalCommitContributions
-                        contributionCalendar {
-                          weeks {
-                            contributionDays {
-                              date
-                              contributionCount
+                        commitContributionsByRepository(maxRepositories: 100) {
+                          repository { name }
+                          contributions(first: 100) {
+                            nodes {
+                              occurredAt
+                              commitCount
                             }
+                          }
+                        }
+                        issueContributions(first: 100) {
+                          nodes {
+                            occurredAt
+                          }
+                        }
+                        pullRequestContributions(first: 100) {
+                          nodes {
+                            occurredAt
+                          }
+                        }
+                        pullRequestReviewContributions(first: 100) {
+                          nodes {
+                            occurredAt
                           }
                         }
                       }
@@ -94,27 +120,56 @@ jobs:
                 `;
                 const yearRes = await github.graphql(yearQuery, {
                   login: username,
-                  from: `${year}-01-01T00:00:00+08:00`,
-                  to: `${year}-12-31T23:59:59+08:00`
+                  from: `${year}-01-01T00:00:00Z`,
+                  to: `${year}-12-31T23:59:59Z`
                 });
                 const cc = yearRes.user?.contributionsCollection;
                 totalCommits += cc?.totalCommitContributions || 0;
 
-                const yrWeeks = cc?.contributionCalendar?.weeks || [];
-                for (const w of yrWeeks) {
-                  for (const d of (w.contributionDays || [])) {
-                    if (!allDays.some(x => x.date === d.date)) {
-                      allDays.push(d);
+                // Заполняем активность с пересчетом времени в UTC+8
+                for (const repo of cc?.commitContributionsByRepository || []) {
+                  for (const c of repo.contributions?.nodes || []) {
+                    const d = new Date(c.occurredAt);
+                    const dLocal = new Date(d.getTime() + tzOffsetMs);
+                    const dStr = dLocal.toISOString().slice(0, 10);
+                    if (daysMap[dStr] !== undefined) {
+                      daysMap[dStr] += c.commitCount;
                     }
+                  }
+                }
+
+                for (const item of cc?.issueContributions?.nodes || []) {
+                  const d = new Date(item.occurredAt);
+                  const dLocal = new Date(d.getTime() + tzOffsetMs);
+                  const dStr = dLocal.toISOString().slice(0, 10);
+                  if (daysMap[dStr] !== undefined) {
+                    daysMap[dStr] += 1;
+                  }
+                }
+
+                for (const item of cc?.pullRequestContributions?.nodes || []) {
+                  const d = new Date(item.occurredAt);
+                  const dLocal = new Date(d.getTime() + tzOffsetMs);
+                  const dStr = dLocal.toISOString().slice(0, 10);
+                  if (daysMap[dStr] !== undefined) {
+                    daysMap[dStr] += 1;
+                  }
+                }
+
+                for (const item of cc?.pullRequestReviewContributions?.nodes || []) {
+                  const d = new Date(item.occurredAt);
+                  const dLocal = new Date(d.getTime() + tzOffsetMs);
+                  const dStr = dLocal.toISOString().slice(0, 10);
+                  if (daysMap[dStr] !== undefined) {
+                    daysMap[dStr] += 1;
                   }
                 }
               }
 
-              allDays.sort((a, b) => a.date.localeCompare(b.date));
-
-              // Отсекаем будущие дни календарного года по UTC+8 (оставляем дни только до сегодняшнего числа включительно)
-              const todayStr = nowUtc8.toISOString().slice(0, 10);
-              allDays = allDays.filter(d => d.date <= todayStr);
+              const allDays = Object.keys(daysMap).sort().map(date => ({
+                date,
+                contributionCount: daysMap[date]
+              }));
 
               // Коммиты за сегодня, неделю и месяц
               const todayEntry = allDays[allDays.length - 1];
