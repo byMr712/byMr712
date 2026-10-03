@@ -59,7 +59,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 
 | Utility / Tool | Description |
 |---|---|
-| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | A Python script that adds support for managingplayback in Windows using an Android headset. |
+| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | A Python script that adds Windows support for controlling playback using an Android headset. |
 | **[DeskControl-Reloaded](https://github.com/byMr712/DeskControl-Reloaded)** | DeskControl fork with additional functionality |
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Native version of FileBrowser Quantum for TerramasterOS 6/7 |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | The MR CLI FOR FFMPEG is a handy console wrapper over FFmpeg that provides an intuitive menu to perform a variety of operations on video and audio files without having to memorize complex FFmpeg commands. |
@@ -74,11 +74,11 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 
 | Project | Description |
 |---|---|
-| **[MrModrinth](https://github.com/byMr712/MrModrinth)** | Russian web interface and mirror for Modrinth catalog without VPN requirements |
-| **[MrOpenVPNClientWindows](https://github.com/byMr712/MrOpenVPNClientWindows)** | Free and lightweight OpenVPN client for Windows |
+| **[jino-business-card-local-editor](https://github.com/byMr712/jino-business-card-local-editor)** | Jino Business Card Tool |
+| **[MrModrinth](https://github.com/byMr712/MrModrinth)** | Modrinth web interface in Russian. Convenient access to mods, plugins, shaders and other content for Minecraft — without VPN and unnecessary complications. |
 | **[MrOpenVPNClient](https://github.com/byMr712/MrOpenVPNClient)** | Free OpenVPN client for Android |
-| **[jino-business-card-local-editor](https://github.com/byMr712/jino-business-card-local-editor)** | Local tool for designing and generating Jino business cards |
-| **[WebSite-DDLC-Using-Flask](https://github.com/byMr712/WebSite-DDLC-Using-Flask)** | Themed Doki Doki Literature Club website built with Flask |
+| **[MrOpenVPNClientWindows](https://github.com/byMr712/MrOpenVPNClientWindows)** | Free OpenVPN client for Windows |
+| **[WebSite-DDLC-Using-Flask](https://github.com/byMr712/WebSite-DDLC-Using-Flask)** | WebSite_DDLC_Using_Flask |
 
 </details>
 
@@ -88,10 +88,10 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 
 | Project | Description |
 |---|---|
-| **[AlKAsH3D-Engine](https://github.com/byMr712/AlKAsH3D-Engine)** | Real-time 3D game engine built from scratch |
-| **[Unity-WebGL-Game](https://github.com/byMr712/Unity-WebGL-Game)** | Browser WebGL game built with Unity |
-| **[shoppe-keep-russian-translate](https://github.com/byMr712/shoppe-keep-russian-translate)** | Full Russian localization for Shoppe Keep |
-| **[P-Search](https://github.com/byMr712/P-Search)** | Search engine scripts and indexing utility for PastaPugovka |
+| **[AlKAsH3D-Engine](https://github.com/byMr712/AlKAsH3D-Engine)** | Game project AlKAsH3D-Engine |
+| **[P-Search](https://github.com/byMr712/P-Search)** | PastaPugovka |
+| **[shoppe-keep-russian-translate](https://github.com/byMr712/shoppe-keep-russian-translate)** | The Shoppe Keep game Russifier |
+| **[Unity-WebGL-Game](https://github.com/byMr712/Unity-WebGL-Game)** | Authors: Mr712, WastleTheWaste |
 
 </details>
 

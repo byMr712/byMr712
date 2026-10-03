@@ -59,7 +59,7 @@
 
 | Утилита / Программа | Описание |
 |---|---|
-| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | Python-скрипт, добавляющий в Windows поддержку управления воспроизведе��ием с помощью гарнитуры для Android. |
+| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | Python-скрипт, добавляющий в Windows поддержку управления воспроизведением с помощью гарнитуры для Android. |
 | **[DeskControl-Reloaded](https://github.com/byMr712/DeskControl-Reloaded)** | Форк DeskControl с дополнительным функционалом |
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Нативная версия FileBrowser Quantum для TerramasterOS 6/7 |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | MR CLI FOR FFMPEG — это удобная консольная программа-обёртка над FFmpeg, предоставляющая интуитивное меню для выполнения разнообразных операций с видео и аудио файлами без необходимости запоминать сложные команды FFmpeg. |
@@ -74,11 +74,11 @@
 
 | Проект | Описание |
 |---|---|
-| **[MrModrinth](https://github.com/byMr712/MrModrinth)** | Удобный русскоязычный веб-интерфейс каталога Modrinth без необходимости VPN |
-| **[MrOpenVPNClientWindows](https://github.com/byMr712/MrOpenVPNClientWindows)** | Бесплатный OpenVPN клиент для Windows |
+| **[jino-business-card-local-editor](https://github.com/byMr712/jino-business-card-local-editor)** | Инструмент для создания визитных карточек на сайте Jino |
+| **[MrModrinth](https://github.com/byMr712/MrModrinth)** | Веб-интерфейс Modrinth на русском языке. Удобный доступ к модам, плагинам, шейдерам и другому контенту для Minecraft — без VPN и лишних сложностей. |
 | **[MrOpenVPNClient](https://github.com/byMr712/MrOpenVPNClient)** | Бесплатный OpenVPN клиент для Android |
-| **[jino-business-card-local-editor](https://github.com/byMr712/jino-business-card-local-editor)** | Локальный инструмент для создания и верстки визиток Jino |
-| **[WebSite-DDLC-Using-Flask](https://github.com/byMr712/WebSite-DDLC-Using-Flask)** | Веб-сайт по Doki Doki Literature Club на фреймворке Flask |
+| **[MrOpenVPNClientWindows](https://github.com/byMr712/MrOpenVPNClientWindows)** | Бесплатный OpenVPN клиент для Windows |
+| **[WebSite-DDLC-Using-Flask](https://github.com/byMr712/WebSite-DDLC-Using-Flask)** | WebSite_DDLC_Using_Flask |
 
 </details>
 
@@ -88,10 +88,10 @@
 
 | Проект | Описание |
 |---|---|
-| **[AlKAsH3D-Engine](https://github.com/byMr712/AlKAsH3D-Engine)** | 3D игровой движок |
-| **[Unity-WebGL-Game](https://github.com/byMr712/Unity-WebGL-Game)** | Браузерная WebGL-игра на Unity |
-| **[shoppe-keep-russian-translate](https://github.com/byMr712/shoppe-keep-russian-translate)** | Русификатор для игры Shoppe Keep |
-| **[P-Search](https://github.com/byMr712/P-Search)** | Скрипты и инструмент поиска PastaPugovka |
+| **[AlKAsH3D-Engine](https://github.com/byMr712/AlKAsH3D-Engine)** | Игровой проект AlKAsH3D-Engine |
+| **[P-Search](https://github.com/byMr712/P-Search)** | PastaPugovka |
+| **[shoppe-keep-russian-translate](https://github.com/byMr712/shoppe-keep-russian-translate)** | Русификатор игры Shoppe Keep |
+| **[Unity-WebGL-Game](https://github.com/byMr712/Unity-WebGL-Game)** | Авторы: Mr712, WastleTheWaste |
 
 </details>
 

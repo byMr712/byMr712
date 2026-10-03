@@ -88,6 +88,21 @@ const cliNames = [
   'DeskControl-Reloaded'
 ];
 
+const webNames = [
+  'MrModrinth',
+  'MrOpenVPNClientWindows',
+  'MrOpenVPNClient',
+  'jino-business-card-local-editor',
+  'WebSite-DDLC-Using-Flask'
+];
+
+const gameNames = [
+  'AlKAsH3D-Engine',
+  'Unity-WebGL-Game',
+  'shoppe-keep-russian-translate',
+  'P-Search'
+];
+
 async function classifyAndDescribeRepo(repo) {
   const name = repo.name;
   let category = null;
@@ -101,6 +116,12 @@ async function classifyAndDescribeRepo(repo) {
     cleanName = name.replace(/-MinecraftPlugin$/i, '');
   } else if (/^MR-CLI-/i.test(name) || cliNames.includes(name)) {
     category = 'CLI';
+    cleanName = name;
+  } else if (webNames.includes(name)) {
+    category = 'WEB';
+    cleanName = name;
+  } else if (gameNames.includes(name)) {
+    category = 'GAME';
     cleanName = name;
   }
 
@@ -126,6 +147,12 @@ async function classifyAndDescribeRepo(repo) {
     } else if (category === 'PLUGIN') {
       descRu = `Плагин ${cleanName} для Minecraft серверов`;
       descEn = `${cleanName} plugin for Minecraft servers`;
+    } else if (category === 'WEB') {
+      descRu = `Веб-проект ${cleanName}`;
+      descEn = `Web project ${cleanName}`;
+    } else if (category === 'GAME') {
+      descRu = `Игровой проект ${cleanName}`;
+      descEn = `Game project ${cleanName}`;
     } else {
       descRu = `Консольная утилита ${cleanName}`;
       descEn = `Command-line utility ${cleanName}`;
@@ -196,9 +223,11 @@ async function updateCatalog() {
   }
   console.log(`Matched ${categorized.length} categorized projects`);
 
-  const categorizedByCat = { MOD: [], PLUGIN: [], CLI: [] };
+  const categorizedByCat = { MOD: [], PLUGIN: [], CLI: [], WEB: [], GAME: [] };
   for (const item of categorized) {
-    categorizedByCat[item.category].push(item);
+    if (categorizedByCat[item.category]) {
+      categorizedByCat[item.category].push(item);
+    }
   }
 
   for (const cat of Object.keys(categorizedByCat)) {
@@ -224,6 +253,16 @@ async function updateCatalog() {
           regex: /<summary>\s*<b>\s*CLI утилиты/i,
           headers: ['| Утилита / Программа | Описание |', '|---|---|'],
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
+        },
+        WEB: {
+          regex: /<summary>\s*<b>\s*Веб-сервисы и VPN/i,
+          headers: ['| Проект | Описание |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
+        },
+        GAME: {
+          regex: /<summary>\s*<b>\s*Игры, движки, русификаторы/i,
+          headers: ['| Проект | Описание |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
         }
       }
     },
@@ -244,6 +283,16 @@ async function updateCatalog() {
         CLI: {
           regex: /<summary>\s*<b>\s*CLI Utilities/i,
           headers: ['| Utility / Tool | Description |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
+        },
+        WEB: {
+          regex: /<summary>\s*<b>\s*Web Services & VPN/i,
+          headers: ['| Project | Description |', '|---|---|'],
+          getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
+        },
+        GAME: {
+          regex: /<summary>\s*<b>\s*Games, Engines & Translations/i,
+          headers: ['| Project | Description |', '|---|---|'],
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
         }
       }
