@@ -59,9 +59,9 @@
 
 | Утилита / Программа | Описание |
 |---|---|
-| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | Python-скрипт, добавляющий в Windows поддержку управления воспроизведением с помощью гарнитуры для Android. |
+| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | Python-скрипт, добавляющий в Windows поддержку управления воспроизведен��ем с помощью гарнитуры для Android. |
 | **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Скрыть информацию в BMP-файле |
-| **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP — это удобная консольная программа-обёртка над yt-dlp, предоставляющая интуитивное меню для скачивания видео и аудио, преимущественно с ютуб, без необходимости запоминать сложные команды yt-dlp. |
+| **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP — это удобная консольная программа-обёртка над yt-dlp, предоставляющая интуитивное меню для скачивания видео и аудио, преимуществе��но с ютуб, без необходимости запоминать сложные команды yt-dlp. |
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Нативная версия FileBrowser Quantum для TerramasterOS 6/7 |
 | **[DeskControl-Reloaded](https://github.com/byMr712/DeskControl-Reloaded)** | Форк DeskControl с дополнительным функционалом |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | MR CLI FOR FFMPEG — это удобная консольная программа-обёртка над FFmpeg, предоставляющая интуитивное меню для выполнения разнообразных операций с видео и аудио файлами без необходимости запоминать сложные команды FFmpeg. |
