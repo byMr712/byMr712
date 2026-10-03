@@ -252,17 +252,17 @@ async function updateCatalog() {
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
         },
         CLI: {
-          regex: /<summary>\s*<b>\s*CLI утилиты/i,
+          regex: /<summary>\s*<b>\s*Утилиты и программы/i,
           headers: ['| Утилита / Программа | Описание |', '|---|---|'],
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
         },
         WEB: {
-          regex: /<summary>\s*<b>\s*Веб-сервисы и VPN/i,
+          regex: /<summary>\s*<b>\s*Веб-сервисы/i,
           headers: ['| Проект | Описание |', '|---|---|'],
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
         },
         GAME: {
-          regex: /<summary>\s*<b>\s*Игры, движки, русификаторы/i,
+          regex: /<summary>\s*<b>\s*Про игры/i,
           headers: ['| Проект | Описание |', '|---|---|'],
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionRu} |`
         }
@@ -283,17 +283,17 @@ async function updateCatalog() {
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
         },
         CLI: {
-          regex: /<summary>\s*<b>\s*CLI Utilities/i,
+          regex: /<summary>\s*<b>\s*Utilities and Programs/i,
           headers: ['| Utility / Tool | Description |', '|---|---|'],
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
         },
         WEB: {
-          regex: /<summary>\s*<b>\s*Web Services & VPN/i,
+          regex: /<summary>\s*<b>\s*Web Services/i,
           headers: ['| Project | Description |', '|---|---|'],
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
         },
         GAME: {
-          regex: /<summary>\s*<b>\s*Games, Engines & Translations/i,
+          regex: /<summary>\s*<b>\s*Gaming Projects/i,
           headers: ['| Project | Description |', '|---|---|'],
           getRow: item => `| **[${item.cleanName}](${item.url})** | ${item.descriptionEn} |`
         }

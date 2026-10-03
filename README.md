@@ -54,7 +54,7 @@
 </details>
 
 <details>
-<summary><b>CLI утилиты и программы</b></summary>
+<summary><b>Утилиты и программы</b></summary>
 <br>
 
 | Утилита / Программа | Описание |
@@ -69,7 +69,7 @@
 </details>
 
 <details>
-<summary><b>Веб-сервисы и VPN</b></summary>
+<summary><b>Веб-сервисы</b></summary>
 <br>
 
 | Проект | Описание |
@@ -83,7 +83,7 @@
 </details>
 
 <details>
-<summary><b>Игры, движки, русификаторы</b></summary>
+<summary><b>Про игры</b></summary>
 <br>
 
 | Проект | Описание |
@@ -96,6 +96,7 @@
 </details>
 
 ## 📬 Связь
+* **Email**: dzgrok@gmail.com [[Прямая ссылка]](mailto:dzgrok@gmail.com)
 * **Telegram**: @byMr712 [[Прямая ссылка]](https://t.me/byMr712)
 * **Discord**: @byMr712 [[Прямая ссылка]](https://discord.com/users/829682913305427968)
 * **VK**: @byMr712 [[Прямая ссылка]](https://vk.ru/byMr712)

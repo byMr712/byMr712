@@ -54,7 +54,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 </details>
 
 <details>
-<summary><b>CLI Utilities & Tools</b></summary>
+<summary><b>Utilities and Programs</b></summary>
 <br>
 
 | Utility / Tool | Description |
@@ -69,7 +69,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 </details>
 
 <details>
-<summary><b>Web Services & VPN</b></summary>
+<summary><b>Web Services</b></summary>
 <br>
 
 | Project | Description |
@@ -83,7 +83,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 </details>
 
 <details>
-<summary><b>Games, Engines & Translations</b></summary>
+<summary><b>Gaming Projects</b></summary>
 <br>
 
 | Project | Description |
@@ -96,6 +96,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 </details>
 
 ## 📬 Contact
+* **Email**: dzgrok@gmail.com [[Direct Link]](mailto:dzgrok@gmail.com)
 * **Telegram**: @byMr712 [[Direct Link]](https://t.me/byMr712)
 * **Discord**: @byMr712 [[Direct Link]](https://discord.com/users/829682913305427968)
 * **VK**: @byMr712 [[Direct Link]](https://vk.ru/byMr712)
