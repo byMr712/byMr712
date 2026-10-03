@@ -47,7 +47,7 @@
 
 | Плагин | Описание |
 |---|---|
-| **[AdminOnlyLoginIP](https://github.com/byMr712/AdminOnlyLoginIP-MinecraftPlugin)** | Плагин для привязки учетной записи к IP-адресу с защитой от входа с другого IP-адреса на офлайн-серверах. |
+| **[AdminOnlyLoginIP](https://github.com/byMr712/AdminOnlyLoginIP-MinecraftPlugin)** | Плагин для привязки уч��тной записи к IP-адресу с защитой от входа с другого IP-адреса на офлайн-серверах. |
 | **[DeathCooldownTimer](https://github.com/byMr712/DeathCooldownTimer-MinecraftPlugin)** | Этот плагин полностью перерабатывает систему смерти и возрождения в Minecraft 1.21.X |
 | **[Rounds](https://github.com/byMr712/Rounds-MinecraftPlugin)** | Плагин мини-игры "Rounds" для майнкрафт сервера 1.20.4 <-> 26.2 |
 
@@ -59,7 +59,7 @@
 
 | Утилита / Программа | Описание |
 |---|---|
-| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | Python-скрипт, добавляющий в Windows поддержку управления воспро��зведением с помощью гарнитуры для Android. |
+| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | Python-скрипт, добавляющий в Windows поддержку управления воспрои��ведением с помощью гарнитуры для Android. |
 | **[DeskControl-Reloaded](https://github.com/byMr712/DeskControl-Reloaded)** | Форк DeskControl с дополнительным функционалом |
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Нативная версия FileBrowser Quantum для TerramasterOS 6/7 |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | MR CLI FOR FFMPEG — это удобная консольная программа-обёртка над FFmpeg, предоставляющая интуитивное меню для выполнения разнообразных операций с видео и аудио файлами без необходимости запоминать сложные команды FFmpeg. |
