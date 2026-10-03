@@ -103,7 +103,7 @@ const gameNames = [
   'P-Search'
 ];
 
-async function classifyAndDescribeRepo(repo) {
+async function classifyAndDescribeRepo(repo, existingRuMap = new Map(), existingEnMap = new Map()) {
   const name = repo.name;
   let category = null;
   let cleanName = name;
@@ -133,14 +133,27 @@ async function classifyAndDescribeRepo(repo) {
   let descRu = '';
   let descEn = '';
 
+  const existingRu = existingRuMap.get(name.toLowerCase());
+  const existingEn = existingEnMap.get(name.toLowerCase());
+
   if (aboutText) {
     const hasCyrillic = /[а-яА-ЯёЁ]/.test(aboutText);
     if (hasCyrillic) {
       descRu = aboutText;
-      descEn = await translateText(aboutText, 'ru', 'en');
+      // Если русское описание не изменилось и уже есть перевод на английский, переиспользуем его
+      if (existingRu && existingRu.desc === aboutText && existingEn && existingEn.desc) {
+        descEn = existingEn.desc;
+      } else {
+        descEn = await translateText(aboutText, 'ru', 'en');
+      }
     } else {
       descEn = aboutText;
-      descRu = await translateText(aboutText, 'en', 'ru');
+      // Если английское описание не изменилось и уже есть перевод на русский, переиспользуем его
+      if (existingEn && existingEn.desc === aboutText && existingRu && existingRu.desc) {
+        descRu = existingRu.desc;
+      } else {
+        descRu = await translateText(aboutText, 'en', 'ru');
+      }
     }
   } else {
     if (category === 'MOD') {
@@ -213,14 +226,38 @@ function extractExistingRows(sectionBody) {
   return rows;
 }
 
+function loadExistingRows(filePath) {
+  const map = new Map();
+  if (!fs.existsSync(filePath)) return map;
+  const content = fs.readFileSync(filePath, 'utf8');
+  const lines = content.split('\n');
+  for (const line of lines) {
+    const m = line.match(/^\|\s*\*\*\[(.*?)\]\((https:\/\/github\.com\/[^\)]+)\)\*\*\s*\|\s*(.*?)\s*\|/);
+    if (m) {
+      const urlParts = m[2].split('/');
+      const repoName = urlParts[urlParts.length - 1];
+      map.set(repoName.toLowerCase(), {
+        cleanName: m[1].trim(),
+        url: m[2].trim(),
+        repoName: repoName,
+        desc: m[3].trim()
+      });
+    }
+  }
+  return map;
+}
+
 async function updateCatalog() {
   console.log('Fetching public repositories for', USERNAME);
   const repos = await getAllRepos();
   console.log(`Found ${repos.length} repositories`);
 
+  const existingRuMap = loadExistingRows('README.md');
+  const existingEnMap = loadExistingRows('README.en.md');
+
   const categorized = [];
   for (const repo of repos) {
-    const item = await classifyAndDescribeRepo(repo);
+    const item = await classifyAndDescribeRepo(repo, existingRuMap, existingEnMap);
     if (item) categorized.push(item);
   }
   console.log(`Matched ${categorized.length} categorized projects`);

@@ -59,7 +59,7 @@
 
 | Утилита / Программа | Описание |
 |---|---|
-| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | Python-скрипт, добавляющий в Windows поддержку управления воспрои��ведением с помощью гарнитуры для Android. |
+| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | Python-скрипт, добавляющий в Windows поддержку управления воспроизведением с помощью гарнитуры для Android. |
 | **[DeskControl-Reloaded](https://github.com/byMr712/DeskControl-Reloaded)** | Форк DeskControl с дополнительным функционалом |
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Нативная версия FileBrowser Quantum для TerramasterOS 6/7 |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | MR CLI FOR FFMPEG — это удобная консольная программа-обёртка над FFmpeg, предоставляющая интуитивное меню для выполнения разнообразных операций с видео и аудио файлами без необходимости запоминать сложные команды FFmpeg. |
