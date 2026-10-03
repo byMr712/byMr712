@@ -24,20 +24,20 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 |---|---|
 | **[AdaptiveTooltips](https://github.com/byMr712/AdaptiveTooltips-1.21.4-MinecraftMod)** | Build AdaptiveTooltips mod for Minecraft 1.21.4 |
 | **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Build mod Bountiful for Minecraft 1.21.4 |
-| **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Tiered Mod Build for Minecraft 1.21.4 |
 | **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Build ExlineCoppeRequipment mod for Minecraft 1.21.4 with spam correction in logs |
 | **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Building a new version of the FancyToasts mod with fixes for Minecraft 1.21.4 |
-| **[RecipeEditor](https://github.com/byMr712/RecipeEditor-1.21.4-MinecraftMod)** | Mod for adding a whole system for changing crafting recipes for Minecraft 1.21.4 |
-| **[MoreLapisLazuli](https://github.com/byMr712/MoreLapisLazuli-1.21.4-MinecraftMod)** | Build MoreLapisLazuli mod for Minecraft 1.21.4 |
-| **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Spears Mod Build for Minecraft 1.21.4 |
-| **[ViaFabricPlusBackPort](https://github.com/byMr712/ViaFabricPlusBackPort-1.21.4-MinecraftMod)** | Build ViaFabricPlus mod for Minecraft 1.21.4 with available new versions for connection up to 26.3 |
-| **[Modded2Vanilla](https://github.com/byMr712/Modded2Vanilla-1.21.4-MinecraftMod)** | A client mod for Minecraft 1.21.4 (Fabric) that resolves the modified client's disagreements with custom servers. |
-| **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Build Nvidium mod for Minecraft 1.21.4 |
-| **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Building a SimpleElytraHud mod for Minecraft 1.21.4 with support for eliters from mods |
-| **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Mod for the generation of new buildings-structures in the world in the style of modern houses for Minecraft 1.21.4 |
-| **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Build a new RDPMouse mod for Minecraft 1.21.4 |
-| **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Client mod for Minecraft 1.21.4 (Fabric), allows up/down keys on your mouse to control the interface windows and not only, without interfering with the mouse in the game itself |
 | **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Mielon's The Sift Mod Build for Minecraft 1.21.4 |
+| **[Modded2Vanilla](https://github.com/byMr712/Modded2Vanilla-1.21.4-MinecraftMod)** | A client mod for Minecraft 1.21.4 (Fabric) that resolves the modified client's disagreements with custom servers. |
+| **[MoreLapisLazuli](https://github.com/byMr712/MoreLapisLazuli-1.21.4-MinecraftMod)** | Build MoreLapisLazuli mod for Minecraft 1.21.4 |
+| **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Mod for the generation of new buildings-structures in the world in the style of modern houses for Minecraft 1.21.4 |
+| **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Client mod for Minecraft 1.21.4 (Fabric), allows up/down keys on your mouse to control the interface windows and not only, without interfering with the mouse in the game itself |
+| **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Build Nvidium mod for Minecraft 1.21.4 |
+| **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Build a new RDPMouse mod for Minecraft 1.21.4 |
+| **[RecipeEditor](https://github.com/byMr712/RecipeEditor-1.21.4-MinecraftMod)** | Mod for adding a whole system for changing crafting recipes for Minecraft 1.21.4 |
+| **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Building a SimpleElytraHud mod for Minecraft 1.21.4 with support for eliters from mods |
+| **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Spears Mod Build for Minecraft 1.21.4 |
+| **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Tiered Mod Build for Minecraft 1.21.4 |
+| **[ViaFabricPlusBackPort](https://github.com/byMr712/ViaFabricPlusBackPort-1.21.4-MinecraftMod)** | Build ViaFabricPlus mod for Minecraft 1.21.4 with available new versions for connection up to 26.3 |
 
 </details>
 
@@ -47,9 +47,9 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 
 | Plugin | Description |
 |---|---|
+| **[AdminOnlyLoginIP](https://github.com/byMr712/AdminOnlyLoginIP-MinecraftPlugin)** | A plugin to bind an account to an IP address with login protection from another IP address on offline servers. |
 | **[DeathCooldownTimer](https://github.com/byMr712/DeathCooldownTimer-MinecraftPlugin)** | This plugin completely redesigns the death and rebirth system in Minecraft 1.21.X |
 | **[Rounds](https://github.com/byMr712/Rounds-MinecraftPlugin)** | Rounds mini-game plugin for minecraft server 1.20.4 <-> 26.2 |
-| **[AdminOnlyLoginIP](https://github.com/byMr712/AdminOnlyLoginIP-MinecraftPlugin)** | A plugin to bind an account to an IP address with login protection from another IP address on offline servers. |
 
 </details>
 
@@ -59,12 +59,12 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 
 | Utility / Tool | Description |
 |---|---|
-| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | A Python script that adds support for managingplayback in Windows using an Android headset. |
-| **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Hide information in BMP file |
-| **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP is a convenient console wrapper program over yt-dlp, providing an intuitive menu for downloading video and audio, the advantageof using YouTube, without the need to memorize complex yt-dlp commands. |
-| **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Native version of FileBrowser Quantum for TerramasterOS 6/7 |
+| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | A Python script that adds Windows support for controlling playback using an Android headset. |
 | **[DeskControl-Reloaded](https://github.com/byMr712/DeskControl-Reloaded)** | DeskControl fork with additional functionality |
+| **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Native version of FileBrowser Quantum for TerramasterOS 6/7 |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | The MR CLI FOR FFMPEG is a handy console wrapper over FFmpeg that provides an intuitive menu to perform a variety of operations on video and audio files without having to memorize complex FFmpeg commands. |
+| **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP is a convenient console wrapper program over yt-dlp that provides an intuitive menu for downloading video and audio, mainly from YouTube, without the need to memorize complex yt-dlp commands. |
+| **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Hide information in BMP file |
 
 </details>
 

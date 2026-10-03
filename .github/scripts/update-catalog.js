@@ -201,6 +201,10 @@ async function updateCatalog() {
     categorizedByCat[item.category].push(item);
   }
 
+  for (const cat of Object.keys(categorizedByCat)) {
+    categorizedByCat[cat].sort((a, b) => a.cleanName.localeCompare(b.cleanName, 'en', { sensitivity: 'base', numeric: true }));
+  }
+
   const configs = [
     {
       path: 'README.md',

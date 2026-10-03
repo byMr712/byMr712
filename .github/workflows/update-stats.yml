@@ -64,7 +64,9 @@ jobs:
                const totalStars = user.repositories.nodes.reduce((acc, r) => acc + (r.stargazerCount || 0), 0);
               const totalPRs = user.pullRequests.totalCount;
               const totalIssues = user.issues.totalCount;
-              const currentYear = new Date().getUTCFullYear();
+              const tzOffsetMs = 8 * 60 * 60 * 1000;
+              const nowUtc8 = new Date(Date.now() + tzOffsetMs);
+              const currentYear = nowUtc8.getUTCFullYear();
               const defaultYears = [];
               for (let y = 2023; y <= currentYear; y++) defaultYears.push(y);
               const sortedYears = (user.contributionsCollection?.contributionYears || defaultYears).slice().sort((a, b) => a - b);
@@ -92,8 +94,8 @@ jobs:
                 `;
                 const yearRes = await github.graphql(yearQuery, {
                   login: username,
-                  from: `${year}-01-01T00:00:00Z`,
-                  to: `${year}-12-31T23:59:59Z`
+                  from: `${year}-01-01T00:00:00+08:00`,
+                  to: `${year}-12-31T23:59:59+08:00`
                 });
                 const cc = yearRes.user?.contributionsCollection;
                 totalCommits += cc?.totalCommitContributions || 0;
@@ -110,8 +112,8 @@ jobs:
 
               allDays.sort((a, b) => a.date.localeCompare(b.date));
 
-              // Отсекаем будущие дни календарного года (оставляем дни только до сегодняшнего числа включительно)
-              const todayStr = new Date().toISOString().slice(0, 10);
+              // Отсекаем будущие дни календарного года по UTC+8 (оставляем дни только до сегодняшнего числа включительно)
+              const todayStr = nowUtc8.toISOString().slice(0, 10);
               allDays = allDays.filter(d => d.date <= todayStr);
 
               // Коммиты за сегодня, неделю и месяц
