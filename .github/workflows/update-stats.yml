@@ -113,7 +113,6 @@ jobs:
               // Отсекаем будущие дни календарного года (оставляем дни только до сегодняшнего числа включительно)
               const todayStr = new Date().toISOString().slice(0, 10);
               allDays = allDays.filter(d => d.date <= todayStr);
-              console.log('Days around Sep 27 in runner:', JSON.stringify(allDays.filter(d => d.date >= '2026-09-24' && d.date <= '2026-10-03')));
 
               // Коммиты за сегодня, неделю и месяц
               const todayEntry = allDays[allDays.length - 1];
