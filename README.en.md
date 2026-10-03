@@ -59,7 +59,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 
 | Utility / Tool | Description |
 |---|---|
-| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | A Python script that adds management support to Windows is reproduced using an Android headset. |
+| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | A Python script that adds support for managingplayback in Windows using an Android headset. |
 | **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Hide information in BMP file |
 | **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP is a convenient console wrapper program over yt-dlp, providing an intuitive menu for downloading video and audio, the advantageof using YouTube, without the need to memorize complex yt-dlp commands. |
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Native version of FileBrowser Quantum for TerramasterOS 6/7 |
