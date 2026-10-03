@@ -47,7 +47,7 @@
 
 | Плагин | Описание |
 |---|---|
-| **[AdminOnlyLoginIP](https://github.com/byMr712/AdminOnlyLoginIP-MinecraftPlugin)** | Плагин для привязки уч��тной записи к IP-адресу с защитой от входа с другого IP-адреса на офлайн-серверах. |
+| **[AdminOnlyLoginIP](https://github.com/byMr712/AdminOnlyLoginIP-MinecraftPlugin)** | Плагин для привязки учетной записи к IP-адресу с защитой от входа с другого IP-адреса на офлайн-серверах. |
 | **[DeathCooldownTimer](https://github.com/byMr712/DeathCooldownTimer-MinecraftPlugin)** | Этот плагин полностью перерабатывает систему смерти и возрождения в Minecraft 1.21.X |
 | **[Rounds](https://github.com/byMr712/Rounds-MinecraftPlugin)** | Плагин мини-игры "Rounds" для майнкрафт сервера 1.20.4 <-> 26.2 |
 

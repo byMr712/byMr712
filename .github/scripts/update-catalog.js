@@ -6,11 +6,11 @@ const USERNAME = 'byMr712';
 function httpsGet(url, headers = {}) {
   return new Promise((resolve) => {
     https.get(url, { headers: { 'User-Agent': 'NodeJS-Catalog-Updater', ...headers } }, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
+      const chunks = [];
+      res.on('data', chunk => chunks.push(chunk));
       res.on('end', () => {
         if (res.statusCode >= 200 && res.statusCode < 300) {
-          resolve(data);
+          resolve(Buffer.concat(chunks).toString('utf8'));
         } else {
           resolve(null);
         }
@@ -37,13 +37,14 @@ function fetchRepos(page = 1) {
     };
 
     https.get(options, (res) => {
-      let body = '';
-      res.on('data', chunk => body += chunk);
+      const chunks = [];
+      res.on('data', chunk => chunks.push(chunk));
       res.on('end', () => {
         if (res.statusCode < 200 || res.statusCode >= 300) {
-          return reject(new Error(`GitHub API returned status ${res.statusCode}: ${body}`));
+          return reject(new Error(`GitHub API returned status ${res.statusCode}`));
         }
         try {
+          const body = Buffer.concat(chunks).toString('utf8');
           resolve(JSON.parse(body));
         } catch (e) {
           reject(e);
