@@ -108,19 +108,21 @@ async function classifyAndDescribeRepo(repo) {
   let category = null;
   let cleanName = name;
 
-  if (/-MinecraftMod$/i.test(name)) {
+  const topics = Array.isArray(repo.topics) ? repo.topics.map(t => t.toLowerCase()) : [];
+
+  if (topics.includes('minecraft-mod') || /-MinecraftMod$/i.test(name)) {
     category = 'MOD';
     cleanName = name.replace(/-(\d+\.\d+(\.\d+)?-)?MinecraftMod$/i, '');
-  } else if (/-MinecraftPlugin$/i.test(name)) {
+  } else if (topics.includes('minecraft-plugin') || /-MinecraftPlugin$/i.test(name)) {
     category = 'PLUGIN';
     cleanName = name.replace(/-MinecraftPlugin$/i, '');
-  } else if (/^MR-CLI-/i.test(name) || cliNames.includes(name)) {
+  } else if (topics.includes('utility') || topics.includes('cli') || /^MR-CLI-/i.test(name) || cliNames.includes(name)) {
     category = 'CLI';
     cleanName = name;
-  } else if (webNames.includes(name)) {
+  } else if (topics.includes('web') || topics.includes('vpn') || webNames.includes(name)) {
     category = 'WEB';
     cleanName = name;
-  } else if (gameNames.includes(name)) {
+  } else if (topics.includes('game') || gameNames.includes(name)) {
     category = 'GAME';
     cleanName = name;
   }
