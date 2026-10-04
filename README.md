@@ -31,9 +31,9 @@
 | **[MoreLapisLazuli](https://github.com/byMr712/MoreLapisLazuli-1.21.4-MinecraftMod)** | Сборка мода MoreLapisLazuli для Minecraft 1.21.4 |
 | **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Мод для генерации в мире новых построек-структур в стиле модерн домов для Minecraft 1.21.4 |
 | **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Клиентский мод для Minecraft 1.21.4 (Fabric), позволяет клавишами вверх/вниз на вашей мыши управлять окнами интерфейса и не только, не мешая работе мыши в самой игре |
+| **[MrRecipeEditor](https://github.com/byMr712/MrRecipeEditor-1.21.4-MinecraftMod)** | Мод для добавления целой системы изменения рецептов крафта для Minecraft 1.21.4 |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Сборка мода Nvidium для Minecraft 1.21.4 |
 | **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Сборка новой мода RDPMouse для Minecraft 1.21.4 |
-| **[RecipeEditor](https://github.com/byMr712/RecipeEditor-1.21.4-MinecraftMod)** | Мод для добавления целой системы изменения рецептов крафта для Minecraft 1.21.4 |
 | **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Сборка мода SimpleElytraHud для Minecraft 1.21.4 с поддержкой элитр из модов |
 | **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Сборка мода Spears для Minecraft 1.21.4 |
 | **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Сборка мода Tiered для Minecraft 1.21.4 |
