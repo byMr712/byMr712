@@ -32,7 +32,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Mod for the generation of new buildings-structures in the world in the style of modern houses for Minecraft 1.21.4 |
 | **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Client mod for Minecraft 1.21.4 (Fabric), allows up/down keys on your mouse to control the interface windows and not only, without interfering with the mouse in the game itself |
 | **[MrFuelFix](https://github.com/byMr712/MrFuelFix-MinecraftMod)** | Lightweight mod fixes the problem with fast fuel loading into the furnace by "Shift + Paintwork" for Minecraft (Fabric) |
-| **[MrRecipeEditor](https://github.com/byMr712/MrRecipeEditor-MinecraftMod)** | Mod adding a whole system of changing crafting recipes for Minecraft 1.21.4 (Fabric) |
+| **[MrRecipeEditor](https://github.com/byMr712/MrRecipeEditor-MinecraftMod)** | Mod adding a whole system of changing crafting recipes for Minecraft (Fabric) |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Build Nvidium mod for Minecraft 1.21.4 |
 | **[RDPMouse](https://github.com/byMr712/RDPMouse-1.21.4-MinecraftMod)** | Build a new RDPMouse mod for Minecraft 1.21.4 |
 | **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Building a SimpleElytraHud mod for Minecraft 1.21.4 with support for eliters from mods |
