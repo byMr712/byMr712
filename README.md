@@ -79,7 +79,7 @@
 | **[MrModrinth](https://github.com/byMr712/MrModrinth)** | Веб-интерфейс Modrinth на русском языке. Удобный доступ к модам, плагинам, шейдерам и другому контенту для Minecraft — без VPN и лишних сложностей. |
 | **[MrOpenVPNClient](https://github.com/byMr712/MrOpenVPNClient)** | Бесплатный OpenVPN клиент для Android |
 | **[MrOpenVPNClientWindows](https://github.com/byMr712/MrOpenVPNClientWindows)** | Бесплатный OpenVPN клиент для Windows |
-| **[WebSite-DDLC-Using-Flask](https://github.com/byMr712/WebSite-DDLC-Using-Flask)** | WebSite_DDLC_Using_Flask |
+| **[WebSite-DDLC-Using-Flask](https://github.com/byMr712/WebSite-DDLC-Using-Flask)** | Веб-сайт на тему DDLC с использованием фреймворка flask |
 
 </details>
 
@@ -89,10 +89,10 @@
 
 | Проект | Описание |
 |---|---|
-| **[AlKAsH3D-Engine](https://github.com/byMr712/AlKAsH3D-Engine)** | Игровой проект AlKAsH3D-Engine |
-| **[P-Search](https://github.com/byMr712/P-Search)** | PastaPugovka |
+| **[AlKAsH3D-Engine](https://github.com/byMr712/AlKAsH3D-Engine)** | Игровой движок "AlKAsH3D Engine" |
+| **[P-Search](https://github.com/byMr712/P-Search)** | Проект P-Search от PastaPugovka |
 | **[shoppe-keep-russian-translate](https://github.com/byMr712/shoppe-keep-russian-translate)** | Русификатор игры Shoppe Keep |
-| **[Unity-WebGL-Game](https://github.com/byMr712/Unity-WebGL-Game)** | Авторы: Mr712, WastleTheWaste |
+| **[Unity-WebGL-Game](https://github.com/byMr712/Unity-WebGL-Game)** | Игра для WebGL созданная на Unity |
 
 </details>
 
