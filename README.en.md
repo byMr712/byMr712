@@ -27,12 +27,12 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Build ExlineCoppeRequipment mod for Minecraft 1.21.4 with spam correction in logs |
 | **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Building a new version of the FancyToasts mod with fixes for Minecraft 1.21.4 |
 | **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Mielon's The Sift Mod Build for Minecraft 1.21.4 |
-| **[Modded2Vanilla](https://github.com/byMr712/Modded2Vanilla-1.21.4-MinecraftMod)** | A client mod for Minecraft 1.21.4 (Fabric) that resolves the modified client's disagreements with custom servers. |
+| **[Modded2Vanilla](https://github.com/byMr712/Modded2Vanilla-MinecraftMod)** | A client mod for Minecraft 1.21.4 (Fabric) that resolves the modified client's disagreements with custom servers. |
 | **[MoreLapisLazuli](https://github.com/byMr712/MoreLapisLazuli-1.21.4-MinecraftMod)** | Build MoreLapisLazuli mod for Minecraft 1.21.4 |
 | **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Mod for the generation of new buildings-structures in the world in the style of modern houses for Minecraft 1.21.4 |
-| **[MouseNavigation](https://github.com/byMr712/MouseNavigation-1.21.4-MinecraftMod)** | Client mod for Minecraft 1.21.4 (Fabric), allows up/down keys on your mouse to control the interface windows and not only, without interfering with the mouse in the game itself |
+| **[MouseNavigation](https://github.com/byMr712/MouseNavigation-MinecraftMod)** | Client mod for Minecraft 1.21.4 (Fabric), allows up/down keys on your mouse to control the interface windows and not only, without interfering with the mouse in the game itself |
 | **[MrFuelFix](https://github.com/byMr712/MrFuelFix-MinecraftMod)** | Lightweight mod fixes the problem with fast fuel loading into the furnace by "Shift + Paintwork" for Minecraft (Fabric) |
-| **[MrRDPFix](https://github.com/byMr712/MrRDPFix-MinecraftMod)** | Build a new RDPMouse mod for Minecraft 1.21.4 |
+| **[MrRDPFix](https://github.com/byMr712/MrRDPFix-MinecraftMod)** | Building a new RDPMouse mod for Minecraft (Fabric) 1.21 - 26.3 |
 | **[MrRecipeEditor](https://github.com/byMr712/MrRecipeEditor-MinecraftMod)** | Mod adding a whole system of changing crafting recipes for Minecraft (Fabric) |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Build Nvidium mod for Minecraft 1.21.4 |
 | **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Building a SimpleElytraHud mod for Minecraft 1.21.4 with support for eliters from mods |
