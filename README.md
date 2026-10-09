@@ -27,11 +27,11 @@
 | **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Сборка мода ExlineCoppeRequipment для Minecraft 1.21.4 с исправлением спама в логах |
 | **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Сборка новой версии мода FancyToasts с исправлениями для Minecraft 1.21.4 |
 | **[MielonsTheSift](https://github.com/byMr712/MielonsTheSift-1.21.4-MinecraftMod)** | Сборка мода Mielon's The Sift для Minecraft 1.21.4 |
-| **[Modded2Vanilla](https://github.com/byMr712/Modded2Vanilla-MinecraftMod)** | Клиентский мод для Minecraft 1.21.4 (Fabric), устраняющий разногласия модифицированного клиента с пользовательскими серверами. |
 | **[MoreLapisLazuli](https://github.com/byMr712/MoreLapisLazuli-1.21.4-MinecraftMod)** | Сборка мода MoreLapisLazuli для Minecraft 1.21.4 |
 | **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Мод для генерации в мире новых построек-структур в стиле модерн домов для Minecraft 1.21.4 |
-| **[MouseNavigation](https://github.com/byMr712/MouseNavigation-MinecraftMod)** | Клиентский мод для Minecraft 1.21.4 (Fabric), позволяет клавишами вверх/вниз на вашей мыши управлять окнами интерфейса и не только, не мешая работе мыши в самой игре |
 | **[MrFuelFix](https://github.com/byMr712/MrFuelFix-MinecraftMod)** | Легковесный мод исправляющий проблему с быстрой загрузкой топлива в печи по "Shift + ЛКМ" для Minecraft (Fabric) |
+| **[MrModded2Vanilla](https://github.com/byMr712/MrModded2Vanilla-MinecraftMod)** | Клиентский мод для Minecraft 1.21.4 (Fabric), устраняющий разногласия модифицированного клиента с пользовательскими серверами. |
+| **[MrMouseNavigation](https://github.com/byMr712/MrMouseNavigation-MinecraftMod)** | Клиентский мод для Minecraft (Fabric), добавляющий навигацию боковыми кнопками мыши в интерфейсах игры |
 | **[MrRDPFix](https://github.com/byMr712/MrRDPFix-MinecraftMod)** | Сборка новой мода RDPMouse для Minecraft (Fabric) 1.21 - 26.3 |
 | **[MrRecipeEditor](https://github.com/byMr712/MrRecipeEditor-MinecraftMod)** | Мод добавления целую систему изменения рецептов крафта для Minecraft (Fabric) |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Сборка мода Nvidium для Minecraft 1.21.4 |
