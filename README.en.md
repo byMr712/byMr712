@@ -32,8 +32,8 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | **[MrFuelFix](https://github.com/byMr712/MrFuelFix-MinecraftMod)** | Lightweight mod fixes the problem with fast fuel loading into the furnace by "Shift + Paintwork" for Minecraft (Fabric) |
 | **[MrModded2Vanilla](https://github.com/byMr712/MrModded2Vanilla-MinecraftMod)** | A client mod for Minecraft 1.21.4 (Fabric) that resolves the modified client's disagreements with custom servers. |
 | **[MrMouseNavigation](https://github.com/byMr712/MrMouseNavigation-MinecraftMod)** | Client mod for Minecraft (Fabric), adding navigation with side mouse buttons in game interfaces |
-| **[MrRDPFix](https://github.com/byMr712/MrRDPFix-MinecraftMod)** | Building a new RDPMouse mod for Minecraft (Fabric) 1.21 - 26.3 |
 | **[MrRecipeEditor](https://github.com/byMr712/MrRecipeEditor-MinecraftMod)** | Mod adding a whole system of changing crafting recipes for Minecraft (Fabric) |
+| **[MrTrueRdpFix](https://github.com/byMr712/MrTrueRdpFix-MinecraftMod)** | Building a new RDPMouse mod for Minecraft (Fabric) 1.21 - 26.3 |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Build Nvidium mod for Minecraft 1.21.4 |
 | **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Building a SimpleElytraHud mod for Minecraft 1.21.4 with support for eliters from mods |
 | **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Spears Mod Build for Minecraft 1.21.4 |

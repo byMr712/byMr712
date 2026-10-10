@@ -32,8 +32,8 @@
 | **[MrFuelFix](https://github.com/byMr712/MrFuelFix-MinecraftMod)** | Легковесный мод исправляющий проблему с быстрой загрузкой топлива в печи по "Shift + ЛКМ" для Minecraft (Fabric) |
 | **[MrModded2Vanilla](https://github.com/byMr712/MrModded2Vanilla-MinecraftMod)** | Клиентский мод для Minecraft 1.21.4 (Fabric), устраняющий разногласия модифицированного клиента с пользовательскими серверами. |
 | **[MrMouseNavigation](https://github.com/byMr712/MrMouseNavigation-MinecraftMod)** | Клиентский мод для Minecraft (Fabric), добавляющий навигацию боковыми кнопками мыши в интерфейсах игры |
-| **[MrRDPFix](https://github.com/byMr712/MrRDPFix-MinecraftMod)** | Сборка новой мода RDPMouse для Minecraft (Fabric) 1.21 - 26.3 |
 | **[MrRecipeEditor](https://github.com/byMr712/MrRecipeEditor-MinecraftMod)** | Мод добавления целую систему изменения рецептов крафта для Minecraft (Fabric) |
+| **[MrTrueRdpFix](https://github.com/byMr712/MrTrueRdpFix-MinecraftMod)** | Сборка новой мода RDPMouse для Minecraft (Fabric) 1.21 - 26.3 |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Сборка мода Nvidium для Minecraft 1.21.4 |
 | **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Сборка мода SimpleElytraHud для Minecraft 1.21.4 с поддержкой элитр из модов |
 | **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Сборка мода Spears для Minecraft 1.21.4 |
