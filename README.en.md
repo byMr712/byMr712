@@ -17,7 +17,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 ## 🗂️ Project Directory
 
 <details>
-<summary><b>Minecraft Mods (Fabric 1.21.4)</b></summary>
+<summary><b>Minecraft Mods</b></summary>
 <br>
 
 | Mod | Description |

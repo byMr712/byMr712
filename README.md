@@ -17,7 +17,7 @@
 ## 🗂️ Каталог моих проектов
 
 <details>
-<summary><b>Minecraft моды (Fabric 1.21.4)</b></summary>
+<summary><b>Minecraft моды</b></summary>
 <br>
 
 | Мод | Описание |
