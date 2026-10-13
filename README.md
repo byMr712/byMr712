@@ -65,6 +65,8 @@
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Нативная версия FileBrowser Quantum для TerramasterOS 6/7 |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | MR CLI FOR FFMPEG — это удобная консольная программа-обёртка над FFmpeg, предоставляющая интуитивное меню для выполнения разнообразных операций с видео и аудио файлами без необходимости запоминать сложные команды FFmpeg. |
 | **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP — это удобная консольная программа-обёртка над yt-dlp, предоставляющая интуитивное меню для скачивания видео и аудио, преимущественно с ютуб, без необходимости запоминать сложные команды yt-dlp. |
+| **[MrOpenVPNClient](https://github.com/byMr712/MrOpenVPNClient)** | Бесплатный OpenVPN клиент для Android |
+| **[MrOpenVPNClientWindows](https://github.com/byMr712/MrOpenVPNClientWindows)** | Бесплатный OpenVPN клиент для Windows |
 | **[PozNoteForTosDockerEdition](https://github.com/byMr712/PozNoteForTosDockerEdition)** | Нативного приложения (TPK) для установки/настройки/управления контейнерами Poznote на вашем NAS под управлением TOS |
 | **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Скрыть информацию в BMP-файле |
 
@@ -78,8 +80,6 @@
 |---|---|
 | **[jino-business-card-local-editor](https://github.com/byMr712/jino-business-card-local-editor)** | Инструмент для создания визитных карточек на сайте Jino |
 | **[MrModrinth](https://github.com/byMr712/MrModrinth)** | Веб-интерфейс Modrinth на русском языке. Удобный доступ к модам, плагинам, шейдерам и другому контенту для Minecraft — без VPN и лишних сложностей. |
-| **[MrOpenVPNClient](https://github.com/byMr712/MrOpenVPNClient)** | Бесплатный OpenVPN клиент для Android |
-| **[MrOpenVPNClientWindows](https://github.com/byMr712/MrOpenVPNClientWindows)** | Бесплатный OpenVPN клиент для Windows |
 | **[WebSite-DDLC-Using-Flask](https://github.com/byMr712/WebSite-DDLC-Using-Flask)** | Веб-сайт на тему DDLC с использованием фреймворка flask |
 
 </details>
