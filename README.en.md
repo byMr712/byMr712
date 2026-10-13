@@ -65,6 +65,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Native version of FileBrowser Quantum for TerramasterOS 6/7 |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | The MR CLI FOR FFMPEG is a handy console wrapper over FFmpeg that provides an intuitive menu to perform a variety of operations on video and audio files without having to memorize complex FFmpeg commands. |
 | **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP is a convenient console wrapper program over yt-dlp that provides an intuitive menu for downloading video and audio, mainly from YouTube, without the need to memorize complex yt-dlp commands. |
+| **[PozNoteForTosDockerEdition](https://github.com/byMr712/PozNoteForTosDockerEdition)** | A native application (TPK) to install/configure/manage Poznote containers on your TOS-managed NAS |
 | **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Hide information in BMP file |
 
 </details>

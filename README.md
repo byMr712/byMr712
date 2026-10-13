@@ -65,6 +65,7 @@
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Нативная версия FileBrowser Quantum для TerramasterOS 6/7 |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | MR CLI FOR FFMPEG — это удобная консольная программа-обёртка над FFmpeg, предоставляющая интуитивное меню для выполнения разнообразных операций с видео и аудио файлами без необходимости запоминать сложные команды FFmpeg. |
 | **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP — это удобная консольная программа-обёртка над yt-dlp, предоставляющая интуитивное меню для скачивания видео и аудио, преимущественно с ютуб, без необходимости запоминать сложные команды yt-dlp. |
+| **[PozNoteForTosDockerEdition](https://github.com/byMr712/PozNoteForTosDockerEdition)** | Нативного приложения (TPK) для установки/настройки/управления контейнерами Poznote на вашем NAS под управлением TOS |
 | **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Скрыть информацию в BMP-файле |
 
 </details>
