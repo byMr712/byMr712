@@ -207,7 +207,7 @@ jobs:
                 svgRu = svgRu.replace(/(<text id="stat-commits"[^>]*>)[^<]*(<\/text>)/, `$1${totalCommits}$2`);
                 svgRu = svgRu.replace(/(<text id="stat-prs"[^>]*>)[^<]*(<\/text>)/, `$1${totalPRs}$2`);
                 svgRu = svgRu.replace(/(<text id="stat-issues"[^>]*>)[^<]*(<\/text>)/, `$1${totalIssues}$2`);
-                svgRu = svgRu.replace(/(<desc id="descId">)(.*?)(<\/desc>)/, `$1Всего звёзд (Stars): ${totalStars}, Коммитов сегодня: ${commitsToday}, Коммитов за неделю: ${commitsWeek}, Коммитов за месяц: ${commitsMonth}, Всего коммитов (Commits): ${totalCommits}, Всего запросов изменений (Pull Requests): ${totalPRs}, Всего вопросов (Issues): ${totalIssues}$3`);
+                svgRu = svgRu.replace(/(<desc id="descId">)(.*?)(<\/desc>)/, `$1Получено звёзд (Stars): ${totalStars}, Коммитов сегодня: ${commitsToday}, Коммитов за неделю: ${commitsWeek}, Коммитов за месяц: ${commitsMonth}, Всего коммитов (Commits): ${totalCommits}, Внешних запросов изменений (Pull Requests): ${totalPRs}, Всего вопросов (Issues): ${totalIssues}$3`);
                 fs.writeFileSync('github-stats.svg', svgRu);
               }
 
@@ -221,7 +221,7 @@ jobs:
                 svgEn = svgEn.replace(/(<text id="stat-commits"[^>]*>)[^<]*(<\/text>)/, `$1${totalCommits}$2`);
                 svgEn = svgEn.replace(/(<text id="stat-prs"[^>]*>)[^<]*(<\/text>)/, `$1${totalPRs}$2`);
                 svgEn = svgEn.replace(/(<text id="stat-issues"[^>]*>)[^<]*(<\/text>)/, `$1${totalIssues}$2`);
-                svgEn = svgEn.replace(/(<desc id="descId">)(.*?)(<\/desc>)/, `$1Total Stars: ${totalStars}, Commits Today: ${commitsToday}, Commits This Week: ${commitsWeek}, Commits This Month: ${commitsMonth}, Total Commits: ${totalCommits}, Total Pull Requests: ${totalPRs}, Total Issues: ${totalIssues}$3`);
+                svgEn = svgEn.replace(/(<desc id="descId">)(.*?)(<\/desc>)/, `$1Stars Received: ${totalStars}, Commits Today: ${commitsToday}, Commits This Week: ${commitsWeek}, Commits This Month: ${commitsMonth}, Total Commits: ${totalCommits}, External Pull Requests: ${totalPRs}, Total Issues: ${totalIssues}$3`);
                 fs.writeFileSync('github-stats-en.svg', svgEn);
               }
 
