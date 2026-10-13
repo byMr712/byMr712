@@ -5,7 +5,7 @@ const USERNAME = 'byMr712';
 
 function httpsGet(url, headers = {}) {
   return new Promise((resolve) => {
-    https.get(url, { headers: { 'User-Agent': 'NodeJS-Catalog-Updater', ...headers } }, (res) => {
+    https.get(url, { headers: { 'User-Agent': `${USERNAME}-Catalog-Updater`, ...headers } }, (res) => {
       const chunks = [];
       res.on('data', chunk => chunks.push(chunk));
       res.on('end', () => {
@@ -23,7 +23,7 @@ function fetchRepos(page = 1) {
   return new Promise((resolve, reject) => {
     const token = process.env.GITHUB_TOKEN;
     const headers = {
-      'User-Agent': 'NodeJS-Catalog-Updater',
+      'User-Agent': `${USERNAME}-Catalog-Updater`,
       'Accept': 'application/vnd.github+json'
     };
     if (token) {
@@ -111,19 +111,42 @@ async function classifyAndDescribeRepo(repo, existingRuMap = new Map(), existing
 
   const topics = Array.isArray(repo.topics) ? repo.topics.map(t => t.toLowerCase()) : [];
 
-  if (topics.includes('minecraft-mod') || /-MinecraftMod$/i.test(name)) {
+  // 1. Приоритет приписки в названии (суффиксы и префиксы)
+  if (/-MinecraftMod$/i.test(name)) {
     category = 'MOD';
     cleanName = name.replace(/-(\d+\.\d+(\.\d+)?-)?MinecraftMod$/i, '');
-  } else if (topics.includes('minecraft-plugin') || /-MinecraftPlugin$/i.test(name)) {
+  } else if (/-MinecraftPlugin$/i.test(name)) {
     category = 'PLUGIN';
     cleanName = name.replace(/-MinecraftPlugin$/i, '');
-  } else if (topics.includes('utility') || topics.includes('cli') || /^MR-CLI-/i.test(name) || cliNames.includes(name)) {
+  } else if (/^MR-CLI-/i.test(name)) {
     category = 'CLI';
     cleanName = name;
-  } else if (topics.includes('web') || topics.includes('vpn') || webNames.includes(name)) {
+  }
+  // 2. Приоритет тегов (GitHub topics), если приписки в названии нет
+  else if (topics.includes('minecraft-mod')) {
+    category = 'MOD';
+    cleanName = name.replace(/-(\d+\.\d+(\.\d+)?-)?MinecraftMod$/i, '');
+  } else if (topics.includes('minecraft-plugin')) {
+    category = 'PLUGIN';
+    cleanName = name.replace(/-MinecraftPlugin$/i, '');
+  } else if (topics.includes('utility') || topics.includes('cli')) {
+    category = 'CLI';
+    cleanName = name;
+  } else if (topics.includes('web') || topics.includes('vpn')) {
     category = 'WEB';
     cleanName = name;
-  } else if (topics.includes('game') || gameNames.includes(name)) {
+  } else if (topics.includes('game')) {
+    category = 'GAME';
+    cleanName = name;
+  }
+  // 3. Fallback списки по умолчанию, если нет ни приписки, ни тегов
+  else if (cliNames.includes(name)) {
+    category = 'CLI';
+    cleanName = name;
+  } else if (webNames.includes(name)) {
+    category = 'WEB';
+    cleanName = name;
+  } else if (gameNames.includes(name)) {
     category = 'GAME';
     cleanName = name;
   }
@@ -248,6 +271,30 @@ function loadExistingRows(filePath) {
   return map;
 }
 
+function loadExistingCatalogWithCategories(filePath, sections) {
+  const map = new Map();
+  if (!fs.existsSync(filePath)) return map;
+  const content = fs.readFileSync(filePath, 'utf8');
+  for (const [cat, sec] of Object.entries(sections)) {
+    const match = content.match(sec.regex);
+    if (!match) continue;
+    const summaryStartIndex = match.index;
+    const summaryCloseIndex = content.indexOf('</summary>', summaryStartIndex);
+    if (summaryCloseIndex === -1) continue;
+    const detailsCloseIndex = content.indexOf('</details>', summaryCloseIndex);
+    if (detailsCloseIndex === -1) continue;
+    const sectionBody = content.slice(summaryCloseIndex + '</summary>'.length, detailsCloseIndex);
+    const rows = extractExistingRows(sectionBody);
+    for (const r of rows) {
+      map.set(r.repoName.toLowerCase(), {
+        ...r,
+        category: cat
+      });
+    }
+  }
+  return map;
+}
+
 async function updateCatalog() {
   console.log('Fetching public repositories for', USERNAME);
   const repos = await getAllRepos();
@@ -339,10 +386,39 @@ async function updateCatalog() {
     }
   ];
 
-  let anyModified = false;
+  // Глобальное отслеживание изменений каталога (по README.md)
+  const oldCatalogRu = loadExistingCatalogWithCategories('README.md', configs[0].sections);
+  const newCatalogMap = new Map();
+  for (const item of categorized) {
+    newCatalogMap.set(item.repoName.toLowerCase(), item);
+  }
+
   const added = new Set();
+  const moved = new Set();
   const updated = new Set();
   const removed = new Set();
+
+  for (const [nameLower, newItem] of newCatalogMap.entries()) {
+    const old = oldCatalogRu.get(nameLower);
+    if (!old) {
+      added.add(newItem.repoName);
+    } else {
+      if (old.category !== newItem.category) {
+        moved.add(newItem.repoName);
+      }
+      if (old.desc !== newItem.descriptionRu || old.cleanName !== newItem.cleanName) {
+        updated.add(newItem.repoName);
+      }
+    }
+  }
+
+  for (const [nameLower, old] of oldCatalogRu.entries()) {
+    if (!newCatalogMap.has(nameLower)) {
+      removed.add(old.repoName);
+    }
+  }
+
+  let anyModified = false;
 
   for (const cfg of configs) {
     if (!fs.existsSync(cfg.path)) continue;
@@ -351,37 +427,8 @@ async function updateCatalog() {
     let fileModified = false;
 
     for (const [cat, sec] of Object.entries(cfg.sections)) {
-      const match = content.match(sec.regex);
-      if (!match) continue;
-
-      const summaryStartIndex = match.index;
-      const summaryCloseIndex = content.indexOf('</summary>', summaryStartIndex);
-      const detailsCloseIndex = content.indexOf('</details>', summaryCloseIndex);
-      const oldBody = content.slice(summaryCloseIndex + '</summary>'.length, detailsCloseIndex);
-      const oldRows = extractExistingRows(oldBody);
-
       const newItems = categorizedByCat[cat] || [];
       const newRows = newItems.map(sec.getRow);
-
-      // Отслеживаем изменения
-      for (const newItem of newItems) {
-        const old = oldRows.find(o => o.url.toLowerCase() === newItem.url.toLowerCase() || o.repoName.toLowerCase() === newItem.repoName.toLowerCase());
-        if (!old) {
-          added.add(newItem.repoName);
-        } else {
-          const newDesc = cfg.lang === 'ru' ? newItem.descriptionRu : newItem.descriptionEn;
-          if (old.desc !== newDesc || old.cleanName !== newItem.cleanName) {
-            updated.add(newItem.repoName);
-          }
-        }
-      }
-
-      for (const old of oldRows) {
-        const existsInNew = newItems.some(n => n.url.toLowerCase() === old.url.toLowerCase() || n.repoName.toLowerCase() === old.repoName.toLowerCase());
-        if (!existsInNew) {
-          removed.add(old.repoName || old.cleanName);
-        }
-      }
 
       const res = replaceSectionTable(content, sec.regex, sec.headers, newRows);
       if (res.modified) {
@@ -401,11 +448,12 @@ async function updateCatalog() {
 
   const catalogChanges = {
     added: Array.from(added),
+    moved: Array.from(moved),
     updated: Array.from(updated).filter(x => !added.has(x)),
     removed: Array.from(removed)
   };
 
-  const hasChanges = catalogChanges.added.length > 0 || catalogChanges.updated.length > 0 || catalogChanges.removed.length > 0;
+  const hasChanges = catalogChanges.added.length > 0 || catalogChanges.moved.length > 0 || catalogChanges.updated.length > 0 || catalogChanges.removed.length > 0;
   if (hasChanges) {
     fs.writeFileSync('.catalog_changes.json', JSON.stringify(catalogChanges), 'utf8');
     console.log('Catalog changes recorded:', catalogChanges);

@@ -108,7 +108,7 @@
             </svg>
             <text class="stat bold" x="25" y="12.5">Total Pull Requests:</text>
           </g>
-          <text id="stat-prs" class="stat bold" x="470" y="12.5" text-anchor="end">14</text>
+          <text id="stat-prs" class="stat bold" x="470" y="12.5" text-anchor="end">3</text>
         </g>
       </g>
 

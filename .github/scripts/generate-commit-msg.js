@@ -85,7 +85,7 @@ async function main() {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
-            'User-Agent': 'NodeJS-Script',
+            'User-Agent': `${username}-Commit-Msg-Generator`,
             'Content-Type': 'application/json',
             'Content-Length': Buffer.byteLength(data)
           }
@@ -137,13 +137,27 @@ async function main() {
     }
   }
 
-  // Читаем список изменений каталога (добавленные, обновленные, удаленные)
-  let catalogChanges = { added: [], updated: [], removed: [] };
+  // Читаем список изменений каталога (добавленные, перемещенные, обновленные, удаленные)
+  let catalogChanges = { added: [], moved: [], updated: [], removed: [] };
   if (fs.existsSync('.catalog_changes.json')) {
     try {
       catalogChanges = JSON.parse(fs.readFileSync('.catalog_changes.json', 'utf8')) || catalogChanges;
     } catch (e) {
       console.error('Error reading .catalog_changes.json:', e.message);
+    }
+  }
+
+  // Обрабатываем перемещенные репозитории
+  for (const repoName of (catalogChanges.moved || [])) {
+    const existing = repoCommits.find(r => r.name.toLowerCase() === repoName.toLowerCase());
+    if (existing) {
+      existing.movedInCatalog = true;
+    } else {
+      repoCommits.push({
+        name: repoName,
+        commits: [],
+        movedInCatalog: true
+      });
     }
   }
 
@@ -197,6 +211,9 @@ async function main() {
     const sections = [];
     for (const item of repoCommits) {
       const lines = [`# ${item.name}`];
+      if (item.movedInCatalog) {
+        lines.push('- Moved to another category in catalog');
+      }
       if (item.addedToCatalog) {
         lines.push('- Added to project catalog');
       }

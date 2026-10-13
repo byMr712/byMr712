@@ -80,6 +80,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 |---|---|
 | **[jino-business-card-local-editor](https://github.com/byMr712/jino-business-card-local-editor)** | Jino Business Card Tool |
 | **[MrModrinth](https://github.com/byMr712/MrModrinth)** | Modrinth web interface in Russian. Convenient access to mods, plugins, shaders and other content for Minecraft — without VPN and unnecessary complications. |
+| **[P-Search](https://github.com/byMr712/P-Search)** | PastaPugovka P-Search Project |
 | **[WebSite-DDLC-Using-Flask](https://github.com/byMr712/WebSite-DDLC-Using-Flask)** | DDLC website using flask framework |
 
 </details>
@@ -91,7 +92,6 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | Project | Description |
 |---|---|
 | **[AlKAsH3D-Engine](https://github.com/byMr712/AlKAsH3D-Engine)** | Game engine "AlKAsH3D Engine" |
-| **[P-Search](https://github.com/byMr712/P-Search)** | PastaPugovka P-Search Project |
 | **[shoppe-keep-russian-translate](https://github.com/byMr712/shoppe-keep-russian-translate)** | The Shoppe Keep game Russifier |
 | **[Unity-WebGL-Game](https://github.com/byMr712/Unity-WebGL-Game)** | WebGL game created on Unity |
 
