@@ -31,7 +31,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Mod for the generation of new buildings-structures in the world in the style of modern houses for Minecraft 1.21.4 |
 | **[MrFuelFix](https://github.com/byMr712/MrFuelFix-MinecraftMod)** | Lightweight mod fixes the problem with fast fuel loading into the furnace by "Shift + Paintwork" for Minecraft (Fabric) |
 | **[MrModded2Vanilla](https://github.com/byMr712/MrModded2Vanilla-MinecraftMod)** | A client mod for Minecraft 1.21.4 (Fabric) that resolves the modified client's disagreements with custom servers. |
-| **[MrMouseNavigation](https://github.com/byMr712/MrMouseNavigation-MinecraftMod)** | Client mod for Minecraft (Fabric), adding navigation with side mouse buttons in game interfaces |
+| **[MrMouseNavigation](https://github.com/byMr712/MrMouseNavigation-MinecraftMod)** | Client mod for Minecraft (Fabric/NeoForge), adding navigation with side mouse buttons in game interfaces |
 | **[MrRecipeEditor](https://github.com/byMr712/MrRecipeEditor-MinecraftMod)** | Mod adding a whole system of changing crafting recipes for Minecraft (Fabric) |
 | **[MrTrueRdpFix](https://github.com/byMr712/MrTrueRdpFix-MinecraftMod)** | Fix mouse control when playing Minecraft 1.21.x (Fabric & NeoForge) via Remote Desktop Protocol (RDP). |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Build Nvidium mod for Minecraft 1.21.4 |

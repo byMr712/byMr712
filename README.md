@@ -31,7 +31,7 @@
 | **[MoreModernStructures](https://github.com/byMr712/MoreModernStructures-1.21.4-MinecraftMod)** | Мод для генерации в мире новых построек-структур в стиле модерн домов для Minecraft 1.21.4 |
 | **[MrFuelFix](https://github.com/byMr712/MrFuelFix-MinecraftMod)** | Легковесный мод исправляющий проблему с быстрой загрузкой топлива в печи по "Shift + ЛКМ" для Minecraft (Fabric) |
 | **[MrModded2Vanilla](https://github.com/byMr712/MrModded2Vanilla-MinecraftMod)** | Клиентский мод для Minecraft 1.21.4 (Fabric), устраняющий разногласия модифицированного клиента с пользовательскими серверами. |
-| **[MrMouseNavigation](https://github.com/byMr712/MrMouseNavigation-MinecraftMod)** | Клиентский мод для Minecraft (Fabric), добавляющий навигацию боковыми кнопками мыши в интерфейсах игры |
+| **[MrMouseNavigation](https://github.com/byMr712/MrMouseNavigation-MinecraftMod)** | Клиентский мод для Minecraft (Fabric/NeoForge), добавляющий навигацию боковыми кнопками мыши в интерфейсах игры |
 | **[MrRecipeEditor](https://github.com/byMr712/MrRecipeEditor-MinecraftMod)** | Мод добавления целую систему изменения рецептов крафта для Minecraft (Fabric) |
 | **[MrTrueRdpFix](https://github.com/byMr712/MrTrueRdpFix-MinecraftMod)** | Исправление управления мышью при игре в Minecraft 1.21.x (Fabric & NeoForge) через Remote Desktop Protocol (RDP). |
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Сборка мода Nvidium для Minecraft 1.21.4 |
