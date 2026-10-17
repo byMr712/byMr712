@@ -38,7 +38,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Building a SimpleElytraHud mod for Minecraft 1.21.4 with support for eliters from mods |
 | **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Spears Mod Build for Minecraft 1.21.4 |
 | **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Tiered Mod Build for Minecraft 1.21.4 |
-| **[ViaFabricPlusBackPort](https://github.com/byMr712/ViaFabricPlusBackPort-1.21.4-MinecraftMod)** | Build ViaFabricPlus mod for Minecraft 1.21.4 with available new versions for connection up to 26.3 |
+| **[ViaFabricPlusLTS](https://github.com/byMr712/ViaFabricPlusLTS-MinecraftMod)** | Build ViaFabricPlus mod for Minecraft 1.21.4 with available new versions for connection up to 26.3 |
 
 </details>
 

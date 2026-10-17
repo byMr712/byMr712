@@ -38,7 +38,7 @@
 | **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Сборка мода SimpleElytraHud для Minecraft 1.21.4 с поддержкой элитр из модов |
 | **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Сборка мода Spears для Minecraft 1.21.4 |
 | **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Сборка мода Tiered для Minecraft 1.21.4 |
-| **[ViaFabricPlusBackPort](https://github.com/byMr712/ViaFabricPlusBackPort-1.21.4-MinecraftMod)** | Сборка мода ViaFabricPlus для Minecraft 1.21.4 с доступными новыми версиями для подключения до 26.3 |
+| **[ViaFabricPlusLTS](https://github.com/byMr712/ViaFabricPlusLTS-MinecraftMod)** | Сборка мода ViaFabricPlus для Minecraft 1.21.4 с доступными новыми версиями для подключения до 26.3 |
 
 </details>
 
