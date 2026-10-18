@@ -60,7 +60,6 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 
 | Utility / Tool | Description |
 |---|---|
-| **[AndroidMediaControlsWindows](https://github.com/byMr712/AndroidMediaControlsWindows)** | A Python script that adds Windows support for controlling playback using an Android headset. |
 | **[DeskControl-Extended](https://github.com/byMr712/DeskControl-Extended)** | DeskControl fork with additional functionality |
 | **[FileBrowserQuantumForTOS](https://github.com/byMr712/FileBrowserQuantumForTOS)** | Native version of FileBrowser Quantum for TerramasterOS 6/7 |
 | **[MR-CLI-FOR-FFMPEG](https://github.com/byMr712/MR-CLI-FOR-FFMPEG)** | The MR CLI FOR FFMPEG is a handy console wrapper over FFmpeg that provides an intuitive menu to perform a variety of operations on video and audio files without having to memorize complex FFmpeg commands. |
