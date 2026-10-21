@@ -37,6 +37,7 @@
 | **[Nvidium](https://github.com/byMr712/Nvidium-1.21.4-MinecraftMod)** | Сборка мода Nvidium для Minecraft 1.21.4 |
 | **[SimpleElytraHudExtended](https://github.com/byMr712/SimpleElytraHudExtended-1.21.4-MinecraftMod)** | Сборка мода SimpleElytraHud для Minecraft 1.21.4 с поддержкой элитр из модов |
 | **[Spears](https://github.com/byMr712/Spears-1.21.4-MinecraftMod)** | Сборка мода Spears для Minecraft 1.21.4 |
+| **[StrawBed](https://github.com/byMr712/StrawBed-1.21.4-MinecraftMod)** | Сборка мода StrawBed BackPort для Minecraft 1.21.4 |
 | **[Tiered](https://github.com/byMr712/Tiered-1.21.4-MinecraftMod)** | Сборка мода Tiered для Minecraft 1.21.4 |
 | **[ViaFabricPlusLTS](https://github.com/byMr712/ViaFabricPlusLTS-MinecraftMod)** | Форк мода ViaFabricPlus для Minecraft (Fabric) с расширенными версиями для подключения |
 
