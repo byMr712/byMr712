@@ -51,7 +51,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 |---|---|
 | **[AdminOnlyLoginIP](https://github.com/byMr712/AdminOnlyLoginIP-MinecraftPlugin)** | A plugin to bind an account to an IP address with login protection from another IP address on offline servers. |
 | **[DeathCooldownTimer](https://github.com/byMr712/DeathCooldownTimer-MinecraftPlugin)** | This plugin completely redesigns the death and rebirth system in Minecraft 1.21.X |
-| **[Rounds](https://github.com/byMr712/Rounds-MinecraftPlugin)** | Rounds mini-game plugin for minecraft server 1.20.4 <-> 26.2 |
+| **[Rounds](https://github.com/byMr712/Rounds-MinecraftPlugin)** | Rounds mini-game plugin for minecraft server 1.20.4 <-> 26.3 |
 
 </details>
 
