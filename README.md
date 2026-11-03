@@ -23,6 +23,7 @@
 | Мод | Описание |
 |---|---|
 | **[AdaptiveTooltips](https://github.com/byMr712/AdaptiveTooltips-1.21.4-MinecraftMod)** | Сборка мода AdaptiveTooltips для Minecraft 1.21.4 |
+| **[AtlasMap](https://github.com/byMr712/AtlasMap-MinecraftMod)** | Форк мода на карту (мини карту) - AtlasMap, созданный с упором на портирование под другие версии и загрузчики |
 | **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Сборка мода Bountiful для Minecraft 1.21.4 |
 | **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Сборка мода ExlineCoppeRequipment для Minecraft 1.21.4 с исправлением спама в логах |
 | **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Сборка новой версии мода FancyToasts с исправлениями для Minecraft 1.21.4 |
