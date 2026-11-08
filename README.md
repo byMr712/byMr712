@@ -23,7 +23,6 @@
 | Мод | Описание |
 |---|---|
 | **[AdaptiveTooltips](https://github.com/byMr712/AdaptiveTooltips-1.21.4-MinecraftMod)** | Сборка мода AdaptiveTooltips для Minecraft 1.21.4 |
-| **[AtlasMapExtended](https://github.com/byMr712/AtlasMapExtended-MinecraftMod)** | Форк мода на карту (мини карту) - Atlas Map, созданный с упором на портирование под другие версии и загрузчики |
 | **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Сборка мода Bountiful для Minecraft 1.21.4 |
 | **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Сборка мода ExlineCoppeRequipment для Minecraft 1.21.4 с исправлением спама в логах |
 | **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Сборка новой версии мода FancyToasts с исправлениями для Minecraft 1.21.4 |
@@ -52,7 +51,7 @@
 |---|---|
 | **[AdminOnlyLoginIP](https://github.com/byMr712/AdminOnlyLoginIP-MinecraftPlugin)** | Плагин для привязки учетной записи к IP-адресу с защитой от входа с другого IP-адреса на офлайн-серверах. |
 | **[DeathCooldownTimer](https://github.com/byMr712/DeathCooldownTimer-MinecraftPlugin)** | Этот плагин полностью перерабатывает систему смерти и возрождения в Minecraft 1.21.X |
-| **[Rounds](https://github.com/byMr712/Rounds-MinecraftPlugin)** | Плагин мини-игры "Rounds" для майнкрафт сервера 1.20.4 <-> 26.3 |
+| **[Rounds](https://github.com/byMr712/Rounds-MinecraftPlugin)** | Плагин мини-игры "Rounds" для майнкрафт сервера 1.20.4 <-> 26.2 |
 
 </details>
 
@@ -103,3 +102,4 @@
 * **Telegram**: @byMr712 [[Прямая ссылка]](https://t.me/byMr712)
 * **Discord**: @byMr712 [[Прямая ссылка]](https://discord.com/users/829682913305427968)
 * **VK**: @byMr712 [[Прямая ссылка]](https://vk.ru/byMr712)
+* **CurseForge**: Mr712 [[Профиль]](https://www.curseforge.com/members/mr712/projects)
