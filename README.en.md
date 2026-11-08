@@ -23,6 +23,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | Mod | Description |
 |---|---|
 | **[AdaptiveTooltips](https://github.com/byMr712/AdaptiveTooltips-1.21.4-MinecraftMod)** | Build AdaptiveTooltips mod for Minecraft 1.21.4 |
+| **[AtlasMapExtended](https://github.com/byMr712/AtlasMapExtended-MinecraftMod)** | Fork mod to map (mini map) - Atlas Map, created with an emphasis on porting to other versions and loaders |
 | **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Build mod Bountiful for Minecraft 1.21.4 |
 | **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Build ExlineCoppeRequipment mod for Minecraft 1.21.4 with spam correction in logs |
 | **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Building a new version of the FancyToasts mod with fixes for Minecraft 1.21.4 |
@@ -51,7 +52,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 |---|---|
 | **[AdminOnlyLoginIP](https://github.com/byMr712/AdminOnlyLoginIP-MinecraftPlugin)** | A plugin to bind an account to an IP address with login protection from another IP address on offline servers. |
 | **[DeathCooldownTimer](https://github.com/byMr712/DeathCooldownTimer-MinecraftPlugin)** | This plugin completely redesigns the death and rebirth system in Minecraft 1.21.X |
-| **[Rounds](https://github.com/byMr712/Rounds-MinecraftPlugin)** | Rounds mini-game plugin for minecraft server 1.20.4 <-> 26.2 |
+| **[Rounds](https://github.com/byMr712/Rounds-MinecraftPlugin)** | Rounds mini-game plugin for minecraft server 1.20.4 <-> 26.3 |
 
 </details>
 
