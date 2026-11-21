@@ -24,7 +24,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 |---|---|
 | **[AdaptiveTooltips](https://github.com/byMr712/AdaptiveTooltips-1.21.4-MinecraftMod)** | Build AdaptiveTooltips mod for Minecraft 1.21.4 |
 | **[AtlasMapExtended](https://github.com/byMr712/AtlasMapExtended-MinecraftMod)** | Fork mod to map (mini map) - Atlas Map, created with an emphasis on porting to other versions and loaders |
-| **[BeezzCraftExtended](https://github.com/byMr712/BeezzCraftExtended-MinecraftMod)** | Crafting wheel for Minecraft 26.1–26.3 (Fabric): Alt + Right-click on an item — everything that can be crafted from it |
+| **[BeezzCraftExtended](https://github.com/byMr712/BeezzCraftExtended-MinecraftMod)** | Crafting Wheel for Minecraft 1.21–26.3. CTRL + Right-click on an item — everything that can be crafted from it |
 | **[Bountiful](https://github.com/byMr712/Bountiful-1.21.4-MinecraftMod)** | Build mod Bountiful for Minecraft 1.21.4 |
 | **[ExlineCoppeRequipment](https://github.com/byMr712/ExlineCoppeRequipment-1.21.4-MinecraftMod)** | Build ExlineCoppeRequipment mod for Minecraft 1.21.4 with spam correction in logs |
 | **[FancyToasts](https://github.com/byMr712/FancyToasts-1.21.4-MinecraftMod)** | Building a new version of the FancyToasts mod with fixes for Minecraft 1.21.4 |
