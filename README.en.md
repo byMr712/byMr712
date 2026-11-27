@@ -70,6 +70,7 @@ Minecraft mod developer, applications, CLI tools author, and other software tool
 | **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP is a convenient console wrapper program over yt-dlp that provides an intuitive menu for downloading video and audio, mainly from YouTube, without the need to memorize complex yt-dlp commands. |
 | **[MrOpenVPNClient](https://github.com/byMr712/MrOpenVPNClient)** | Free OpenVPN client for Android |
 | **[MrOpenVPNClientWindows](https://github.com/byMr712/MrOpenVPNClientWindows)** | Free OpenVPN client for Windows |
+| **[NXPatch-TrimuiBrickPro](https://github.com/byMr712/NXPatch-TrimuiBrickPro)** | NX Redux patch for the Trimui Brick Pro handheld console, which expands the firmware. |
 | **[PozNoteForTosDockerEdition](https://github.com/byMr712/PozNoteForTosDockerEdition)** | A native application (TPK) to install/configure/manage Poznote containers on your TOS-managed NAS |
 | **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Hide information in BMP file |
 

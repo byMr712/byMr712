@@ -70,6 +70,7 @@
 | **[MR-CLI-FOR-YT-DLP](https://github.com/byMr712/MR-CLI-FOR-YT-DLP)** | MR CLI FOR YT DLP — это удобная консольная программа-обёртка над yt-dlp, предоставляющая интуитивное меню для скачивания видео и аудио, преимущественно с ютуб, без необходимости запоминать сложные команды yt-dlp. |
 | **[MrOpenVPNClient](https://github.com/byMr712/MrOpenVPNClient)** | Бесплатный OpenVPN клиент для Android |
 | **[MrOpenVPNClientWindows](https://github.com/byMr712/MrOpenVPNClientWindows)** | Бесплатный OpenVPN клиент для Windows |
+| **[NXPatch-TrimuiBrickPro](https://github.com/byMr712/NXPatch-TrimuiBrickPro)** | Патч NX Redux на портативную консоль Trimui Brick Pro, расширяющий прошивку. |
 | **[PozNoteForTosDockerEdition](https://github.com/byMr712/PozNoteForTosDockerEdition)** | Нативного приложения (TPK) для установки/настройки/управления контейнерами Poznote на вашем NAS под управлением TOS |
 | **[SteganoMIX](https://github.com/byMr712/SteganoMIX)** | Скрыть информацию в BMP-файле |
 
